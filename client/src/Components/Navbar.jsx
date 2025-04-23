@@ -1,205 +1,63 @@
-/*
-
 import React from 'react';
-import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-
-export const Navbar = ({ isLoggedIn }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const navButtonStyle = (path) => ({
-    color: '#fff',
-    fontSize: '1rem',
-    fontWeight: location.pathname === path ? 'bold' : 600,
-    textTransform: 'none',
-    borderBottom: location.pathname === path ? '3px solid #fff' : 'none',
-    borderRadius: 0,
-    px: 1.5,
-    '&:hover': {
-      backgroundColor: 'rgba(255,255,255,0.1)',
-    },
-  });
-
-  const authButtonStyle = {
-    marginLeft: '12px',
-    fontSize: '1rem',
-    fontWeight: '600',
-    padding: '0.4rem 1.2rem',
-    borderRadius: '8px',
-  };
-
-  return (
-    <AppBar
-      position="sticky"
-      sx={{
-        backgroundColor: '#1976d2',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-      }}
-    >
-      <Toolbar
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          minHeight: '64px', // tighter height
-          px: 3,
-        }}
-      >
-        <Typography
-          variant="h6"
-          sx={{ cursor: 'pointer', fontWeight: 'bold', color: '#fff' }}
-          onClick={() => navigate('/')}
-        >
-          VELAANS HP NO.1
-        </Typography>
-
-      
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button component={Link} to="/" sx={navButtonStyle('/')}>Home</Button>
-          <Button component={Link} to="/about" sx={navButtonStyle('/about')}>About</Button>
-          <Button component={Link} to="/categories" sx={navButtonStyle('/categories')}>Categories</Button>
-          <Button component={Link} to="/products" sx={navButtonStyle('/products')}>Products</Button>
-          <Button component={Link} to="/contact" sx={navButtonStyle('/contact')}>Contact</Button>
-        </Box>
-
-       
-        {!isLoggedIn && (
-          <Box sx={{ display: 'flex' }}>
-            <Button
-              variant="contained"
-              color="error"
-              to="/login"
-              component={Link}
-              style={authButtonStyle}
-            >
-              LOGIN
-            </Button>
-            <Button
-              variant="contained"
-              color="success"
-              to="/signup"
-              component={Link}
-              style={authButtonStyle}
-            >
-              SIGNUP
-            </Button>
-          </Box>
-        )}
-      </Toolbar>
-    </AppBar>
-  );
-};
-*/
-
-import React from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Box,
-  Typography,
-  IconButton,
-  Badge
-} from '@mui/material';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, IconButton, Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useCart } from '../context/CartContext'; // ✅ make sure path is correct
+import { FiLogOut } from 'react-icons/fi';
+import { useCart } from '../context/CartContext'; // Import useCart
 
-export const Navbar = ({ isLoggedIn }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { cartItems } = useCart(); // ✅ get cart items
+export const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+    const navigate = useNavigate();
+    // Get cartItems for badge AND clearCartLocally function
+    const { cartItems, clearCartLocally } = useCart();
 
-  const navButtonStyle = (path) => ({
-    color: '#fff',
-    fontSize: '1rem',
-    fontWeight: location.pathname === path ? 'bold' : 600,
-    textTransform: 'none',
-    borderBottom: location.pathname === path ? '3px solid #fff' : 'none',
-    borderRadius: 0,
-    px: 1.5,
-    '&:hover': {
-      backgroundColor: 'rgba(255,255,255,0.1)',
-    },
-  });
+    const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const authButtonStyle = {
-    marginLeft: '12px',
-    fontSize: '1rem',
-    fontWeight: '600',
-    padding: '0.4rem 1.2rem',
-    borderRadius: '8px',
-  };
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Remove token
+        setIsLoggedIn(false);           // Update App state
+        clearCartLocally();             // Clear the cart state in context
+        navigate('/login');             // Redirect
+    };
 
-  return (
-    <AppBar
-      position="sticky"
-      sx={{
-        backgroundColor: '#1976d2',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-      }}
-    >
-      <Toolbar
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          minHeight: '64px',
-          px: 3,
-        }}
-      >
-        {/* Left - Logo */}
-        <Typography
-          variant="h6"
-          sx={{ cursor: 'pointer', fontWeight: 'bold', color: '#fff' }}
-          onClick={() => navigate('/')}
-        >
-          VELAANS HP NO.1
-        </Typography>
+    return (
+        <AppBar position="sticky" sx={{ marginTop: 0 }}>
+            <Toolbar>
+                {/* ... Logo/Title ... */}
+                <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}>
+                    VELAANS
+                </Typography>
 
-        {/* Center - Navigation Links */}
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button component={Link} to="/" sx={navButtonStyle('/')}>Home</Button>
-          <Button component={Link} to="/about" sx={navButtonStyle('/about')}>About</Button>
-          <Button component={Link} to="/categories" sx={navButtonStyle('/categories')}>Categories</Button>
-          <Button component={Link} to="/products" sx={navButtonStyle('/products')}>Products</Button>
-          <Button component={Link} to="/contact" sx={navButtonStyle('/contact')}>Contact</Button>
-        </Box>
+                {/* ... Navigation Links ... */}
+                <Button color="inherit" component={Link} to="/home">Home</Button>
+                <Button color="inherit" component={Link} to="/products">Products</Button>
+                <Button color="inherit" component={Link} to="/categories">Categories</Button>
+                <Button color="inherit" component={Link} to="/about">About</Button>
+                <Button color="inherit" component={Link} to="/contact">Contact</Button>
 
-        {/* Right - Cart Icon + Auth Buttons */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <IconButton
-            sx={{ color: 'white' }}
-            onClick={() => navigate('/cart')}
-          >
-            <Badge badgeContent={cartItems.length} color="error">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
+                {/* ... Cart Icon ... */}
+                 <IconButton color="inherit" component={Link} to="/cart" sx={{ ml: 1 }}>
+                    <Badge badgeContent={totalItems} color="secondary">
+                        <ShoppingCartIcon />
+                    </Badge>
+                </IconButton>
 
-          {!isLoggedIn && (
-            <>
-              <Button
-                variant="contained"
-                color="error"
-                to="/login"
-                component={Link}
-                style={authButtonStyle}
-              >
-                LOGIN
-              </Button>
-              <Button
-                variant="contained"
-                color="success"
-                to="/signup"
-                component={Link}
-                style={authButtonStyle}
-              >
-                SIGNUP
-              </Button>
-            </>
-          )}
-        </Box>
-      </Toolbar>
-    </AppBar>
-  );
+                {/* ... Conditional Login/Logout ... */}
+                 {isLoggedIn ? (
+                    <IconButton
+                        color="inherit"
+                        onClick={handleLogout} // Uses updated handleLogout
+                        sx={{ ml: 1 }}
+                        aria-label="logout"
+                    >
+                        <FiLogOut />
+                    </IconButton>
+                ) : (
+                    <>
+                        <Button color="inherit" component={Link} to="/login" sx={{ ml: 1 }}>Login</Button>
+                        <Button color="inherit" component={Link} to="/signup">Signup</Button>
+                    </>
+                )}
+            </Toolbar>
+        </AppBar>
+    );
 };

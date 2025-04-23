@@ -8,7 +8,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 const Contact = () => {
-  const [showPhone, setShowPhone] = useState(false);
+  coAnst [showPhone, setShowPhone] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [copied, setCopied] = useState(false);
 
