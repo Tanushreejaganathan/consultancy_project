@@ -1,0 +1,72 @@
+
+
+/* Set base body style */
+body {
+  background-color: #f5f5f5; /* lighter background for better product visibility */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  /* Center content vertically & horizontally only if it's a standalone page */
+  /* Removed height: 100vh; and overflow: hidden for scrollable homepage */
+  
+  padding-top: 80px; /* Add space for fixed navbar */
+}
+
+/* Optional: style for navbar if needed */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0d6efd; /* or your existing navbar blue */
+  color: white;
+  z-index: 1000;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for product cards grid */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual product card */
+.product-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Button style */
+button, .btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .products-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+}
+
