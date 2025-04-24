@@ -158,6 +158,7 @@ app.get('/api/products', async (req, res) => {
     try {
         const products = await Product.find({});
         res.json(products);
+        console.log("Products fetched successfully:", products); 
     } catch (err) {
         console.error("Error fetching products:", err);
         res.status(500).json({ message: "Server error fetching products" });

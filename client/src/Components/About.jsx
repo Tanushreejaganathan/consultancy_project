@@ -1,15 +1,10 @@
 import React from "react";
-// import about from "../assets/about.jpg";
 import { Smile, Headset } from "lucide-react";
 import CountUp from "react-countup";
-import {
-  FaHandHoldingUsd,
-  FaBalanceScale,
-  FaChartLine,
-  FaBuilding,
-  FaUsers,
-  FaFileAlt,
-} from "react-icons/fa";
+import { FaHandHoldingUsd, FaBalanceScale, FaChartLine, FaBuilding, FaUsers, FaFileAlt } from "react-icons/fa";
+
+// Import the image
+import about from "../../public/bann1.png";
 
 // Info Data
 const infoData = [
@@ -43,19 +38,12 @@ const infoData = [
 // Stats
 const stats = [
   {
-    icon: (
-      <Smile className="text-blue-500 w-12 h-12" aria-label="Happy Clients" />
-    ),
+    icon: <Smile className="text-blue-500 w-12 h-12" aria-label="Happy Clients" />,
     count: 232,
     label: "Happy Clients",
   },
   {
-    icon: (
-      <Headset
-        className="text-blue-500 w-12 h-12"
-        aria-label="Hours Of Support"
-      />
-    ),
+    icon: <Headset className="text-blue-500 w-12 h-12" aria-label="Hours Of Support" />,
     count: 24,
     label: "Hours Of Support",
   },
@@ -79,7 +67,7 @@ const About = () => {
         }}
       >
         <img
-          src={about}
+          src={about} // Correctly use the imported image here
           alt="Rounded"
           style={{
             width: "150px",
@@ -128,7 +116,7 @@ const About = () => {
             }}
           >
             <img
-              src={about}
+              src={about} // Correctly use the imported image here as well
               alt="About Us"
               style={{
                 width: "100%",
@@ -168,16 +156,7 @@ const About = () => {
                 color: "#666",
               }}
             >
-              Since our founding in 2018, Rejoice Technical Solutions has been
-              dedicated to innovating and revolutionizing the textile industry
-              by manufacturing cutting-edge machinery for fabric production and
-              processing. Our team travels across the globe, researching the
-              latest advancements in automation, precision engineering, and
-              smart technology to develop high-performance machines for weaving,
-              dyeing, printing, and finishing. We offer a diverse range of
-              high-quality textile machinery, exclusive designs, expert support,
-              and exceptional customer service, empowering businesses to enhance
-              efficiency and productivity in fabric manufacturing.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi necessitatibus officiis fuga sit consequuntur temporibus soluta unde, at error quaerat ex eveniet veniam nam culpa voluptatibus quas neque? Alias quos modi deserunt quae, reiciendis culpa cum quod voluptatum vero asperiores a labore officiis voluptate magnam nemo laudantium? Voluptas, accusamus porro!
             </p>
           </div>
         </div>
@@ -315,12 +294,11 @@ const About = () => {
       >
         <p
           style={{
-            fontSize: "14px",
-            fontWeight: "bold",
+            fontSize: "16px",
+            color: "#666",
           }}
         >
-          Copyright © {new Date().getFullYear()} - All rights reserved by{" "}
-          <span style={{ fontWeight: "bold" }}>company name</span>
+          &copy; 2025 VELLAN. All rights reserved.
         </p>
       </footer>
     </div>

@@ -20,7 +20,7 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     };
 
     return (
-        <AppBar position="sticky" sx={{ marginTop: 0 }}>
+        <AppBar sx={{ marginTop: 0 }}>
             <Toolbar>
                 {/* ... Logo/Title ... */}
                 <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}>
