@@ -75,8 +75,11 @@ const CartPage = () => {
                     </TableHead>
                     <TableBody>
                         {cartItems.length > 0 ? (
-                            cartItems.map(item => (
-                                <CartItem key={item.id} item={item} />
+                            cartItems.map((item, index) => (
+                                <CartItem 
+                                    key={item.id || `cart-item-${index}`} 
+                                    item={item} 
+                                />
                             ))
                         ) : (
                             <TableRow>

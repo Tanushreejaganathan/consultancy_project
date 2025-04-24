@@ -21,7 +21,7 @@ export const Login = ({ setIsLoggedIn }) => {
             if (response.data && response.data.token) {
                 localStorage.setItem('token', response.data.token);
                 setIsLoggedIn(true);
-                await fetchCart();
+                await fetchCart(); // This line fetches the cart data after login
                 navigate('/home');
             }
         } catch (err) {

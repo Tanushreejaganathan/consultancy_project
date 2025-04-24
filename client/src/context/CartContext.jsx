@@ -23,8 +23,8 @@ export const CartProvider = ({ children }) => {
     const fetchCart = async () => {
         const token = getAuthToken();
         if (!token) {
-            console.log("No token, skipping cart fetch.");
-            setCartItems([]); // Clear cart if no token is available
+            console.log("No token found, redirecting to login");
+            setCartItems([]);
             return;
         }
 
@@ -33,25 +33,36 @@ export const CartProvider = ({ children }) => {
 
         try {
             const response = await axios.get('http://localhost:3001/api/users/me/cart', {
-                headers: { Authorization: `Bearer ${token}` }
+                headers: { 
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
             });
 
-            // Format and set cart data with safety checks
-            const formattedCart = response.data
-                .filter(item => item.productId) // Ensure productId exists
-                .map(item => ({
-                    id: item.productId._id || '', // fallback to empty string if needed
-                    name: item.productId.name || 'Unnamed Product',
-                    price: item.productId.price || 0,
-                    image: item.productId.imageUrl || '/images/default-product.jpg',
-                    quantity: item.quantity || 1
-                }));
+            if (!response.data) {
+                throw new Error('No data received from server');
+            }
 
-            setCartItems(formattedCart); // Set the formatted cart items in state
+            console.log("Cart data received:", response.data);
+            // Format the cart data properly
+            const formattedCart = Array.isArray(response.data) ? response.data.map(item => ({
+                id: item.productId?._id || '',
+                name: item.productId?.name || 'Product Not Found',
+                price: item.productId?.price || 0,
+                image: item.productId?.imageUrl || '/images/default-product.jpg',
+                quantity: item.quantity || 0
+            })).filter(item => item.id) : [];
+
+            setCartItems(formattedCart);
         } catch (err) {
-            console.error("Error fetching cart:", err);
-            setError("Could not load cart.");
-            setCartItems([]); // Clear cart on error
+            console.error("Cart fetch error:", err);
+            if (err.response?.status === 401) {
+                localStorage.removeItem('token'); // Clear invalid token
+                setError("Session expired. Please login again.");
+            } else {
+                setError("Failed to load cart. Please try again.");
+            }
+            setCartItems([]);
         } finally {
             setLoading(false);
         }

@@ -3,24 +3,264 @@
     "name": "Premium All-Weather Floor Mats",
     "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
     "price": 149.99,
-    "imageUrl": "https://i.ibb.co/dsZ5Yp0p/infraredlamp3.png",
-    "category": "Accessories",
+    "imageUrl":"https://i.ibb.co/HTY644yw/prodau1.jpg" ,
+    "category": "Automotive Lubricants",
     "stock": 50
   },
   {
     "name": "Premium All-Weather Floor Mats",
     "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
     "price": 149.99,
-    "imageUrl": "/images/floor-mats.jpg",
-    "category": "Acsdfghjkies",
+    "imageUrl":"https://i.ibb.co/8g9MbYp6/prodau2.jpg",
+    "category": "Automotive Lubricants",
     "stock": 50
   },
   {
     "name": "Synthetic Blend Motor Oil 5W-30",
     "description": "High-quality synthetic blend motor oil for gasoline engines. Provides excellent protection and performance. 5 Quart.",
     "price": 29.95,
-    "imageUrl": "/images/motor-oil.jpg",
-    "category": "Parts",
+    "imageUrl": "https://i.ibb.co/RkRw7MpB/prodau3.jpg" ,
+    "category": "Automotive Lubricants",
     "stock": 120
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/4ZPNLLB3/prodau4.jpg" ,
+    "category": "Automotive Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/yc77LnGp/syp1.jpg" ,
+    "category": "Synthetic Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/5hs8nwPk/syp2.jpg",
+    "category": "Synthetic Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/0yNkJ8hw/syp3.jpg" ,
+    "category": "Synthetic Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/sv7MGKfq/syp4.jpg",
+    "category": "Synthetic Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/C5TVmXQS/prodg1.jpg",
+    "category": "Gas Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/Q3dMJqRC/prodg2.jpg" ,
+    "category": "Gas Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/VYfCZdCR/prode1.jpg" ,
+    "category": "Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/7dQJSbsz/prode2.jpg" ,
+    "category": "Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/j9cWTygC/prode3.jpg" ,
+    "category": "Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/s475Q2G/prode4.jpg" ,
+    "category": "Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/chdyBdzr/prodo1.jpg" ,
+    "category": "Oil Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/XfXB8SjK/prodo2.png" ,
+    "category": "Oil Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/27WnhHW7/prodo3.jpg",
+    "category": "Oil Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/d4KVQf64/prodo4.jpg",
+    "category": "Oil Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/S4Ln2jZd/podd1.jpg",
+    "category": "Diesel Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/SwdppjCJ/prodd2.jpg"  ,
+    "category": "Diesel Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/YTQ2FxWB/prodd3.jpg" ,
+    "category": "Diesel Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/LDvhFbSw/prodd4.jpg" ,
+    "category": "Diesel Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/prGH2HGZ/prodc1.jpg",
+    "category": "Car Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/N2WNMQGh/prodc2.jpg" ,
+    "category": "Car Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/zHNJ2Sf3/prodc3.jpg" ,
+    "category": "Car Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/1YYtQ4Xq/prodc4.jpg" ,
+    "category": "Car Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/8D61vJSZ/prodb1.jpg" ,
+    "category": "Bike Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/mrvQY3Pw/prodb2.jpg",
+    "category": "Bike Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/Q7JW35C6/prodb3.jpg" ,
+    "category": "Bike Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/GfX7kTpk/prodb44.jpg",
+    "category": "Bike Engine Oil",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/QvVC5Zwj/prodi1.jpg" ,
+    "category": "Industrial Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/VYzTDNmg/prodi2.jpg",
+    "category": "Industrial Lubricants",
+    "stock": 50
+  },
+  {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl":"https://i.ibb.co/HLp5K6CQ/prodf1.jpg",
+    "category": "Four Stroke Oil",
+    "stock": 50
   }
 ]

@@ -8,7 +8,6 @@ const Product = require('../models/Product'); // Adjust path - needed to check p
 // @access  Private
 const getUserCart = async (req, res) => {
     try {
-        // req.user is attached by the 'protect' middleware
         const user = await User.findById(req.user.id).populate({
             path: 'cart.productId',
             model: 'Product', 
@@ -19,29 +18,24 @@ const getUserCart = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Map cart items to a format potentially expected by the frontend
-        console.log('User cart:', user.cart); // Debugging line to check cart items
         const populatedCart = user.cart.map(item => {
-             if (!item.productId) {
-                 // This can happen if a product referenced in the cart was deleted
-                 console.warn(`Cart item references non-existent product ID for user ${user.id}`);
-                 // Decide how to handle: filter out, return placeholder, etc.
-                 return null; // Filter out this item
-             }
-             // Ensure the structure matches what CartContext expects
-             return {
-                 id: item.productId._id, // Use product._id as 'id'
-                 name: item.productId.name,
-                 price: item.productId.price,
-                 image: item.productId.imageUrl, // Match frontend property name
-                 stock: item.productId.stock,
-                 category: item.productId.category,
-                 quantity: item.quantity,
-                 _id: item.productId._id // Keep original _id if needed
-             };
-        }).filter(item => item !== null); // Remove any null items resulting from missing products
+            if (!item.productId) {
+                console.warn(`Cart item references non-existent product ID for user ${user.id}`);
+                return null;
+            }
+            return {
+                id: item.productId._id,
+                name: item.productId.name,
+                price: item.productId.price,
+                image: item.productId.imageUrl,
+                stock: item.productId.stock,
+                category: item.productId.category,
+                quantity: item.quantity,
+                _id: item.productId._id
+            };
+        }).filter(item => item !== null);
 
-        res.json(populatedCart); // Send the populated cart items
+        res.json(populatedCart);
     } catch (error) {
         console.error('Error fetching cart:', error);
         res.status(500).json({ message: 'Server error fetching cart' });

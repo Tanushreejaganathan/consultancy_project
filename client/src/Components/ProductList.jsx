@@ -145,7 +145,7 @@ function ProductList() {
                     margin: '0 auto'
                   }}
                 >
-                  {products.map((product) => (
+                  {filteredProducts.map((product) => (
                     <Grid
                       key={product._id}
                       item
