@@ -6,17 +6,21 @@ const ProductCard = ({ product }) => {
     const navigate = useNavigate();
 
     const handleViewDetails = () => {
-        // Use _id instead of id if that's what your backend uses
         navigate(`/products/${product._id}`);
     };
 
     return (
-        <Card>
+        <Card sx={{ maxWidth: 345 }}>
             <CardMedia
                 component="img"
-                height="140"
                 image={product.imageUrl}
                 alt={product.name}
+                sx={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'contain',
+                    maxHeight: 250 // Optional: limit max height if needed
+                }}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
