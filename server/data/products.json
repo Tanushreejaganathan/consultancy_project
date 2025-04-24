@@ -8,6 +8,14 @@
     "stock": 50
   },
   {
+    "name": "Premium All-Weather Floor Mats",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "price": 149.99,
+    "imageUrl": "/images/floor-mats.jpg",
+    "category": "Acsdfghjkies",
+    "stock": 50
+  },
+  {
     "name": "Synthetic Blend Motor Oil 5W-30",
     "description": "High-quality synthetic blend motor oil for gasoline engines. Provides excellent protection and performance. 5 Quart.",
     "price": 29.95,

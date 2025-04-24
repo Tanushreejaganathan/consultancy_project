@@ -11,8 +11,8 @@ const getUserCart = async (req, res) => {
         // req.user is attached by the 'protect' middleware
         const user = await User.findById(req.user.id).populate({
             path: 'cart.productId',
-            model: 'Product', // Explicitly specify the model name if needed
-            select: 'name price imageUrl stock category' // Fields to populate
+            model: 'Product', 
+            select: 'name price imageUrl stock category' 
         });
 
         if (!user) {
@@ -20,6 +20,7 @@ const getUserCart = async (req, res) => {
         }
 
         // Map cart items to a format potentially expected by the frontend
+        console.log('User cart:', user.cart); // Debugging line to check cart items
         const populatedCart = user.cart.map(item => {
              if (!item.productId) {
                  // This can happen if a product referenced in the cart was deleted

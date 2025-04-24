@@ -19,7 +19,7 @@ import CartItem from './CartItem';
 
 const CartPage = () => {
     const { cartItems, loading, error, fetchCart } = useCart();
-
+    console.log('Cart items:', cartItems); // Debugging line
     useEffect(() => {
         fetchCart();
     }, []);

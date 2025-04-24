@@ -8,7 +8,7 @@ const CartItem = ({ item, removeFromCart }) => {
     
     return (
         <TableRow>
-            <TableCell>
+            {/* <TableCell>
                 <img 
                     src={item.image} 
                     alt={item.name} 
@@ -17,7 +17,7 @@ const CartItem = ({ item, removeFromCart }) => {
                         e.target.src = '/images/default-product.jpg';
                     }}
                 />
-            </TableCell>
+            </TableCell> */}
             <TableCell>
                 <Typography>{item.name}</Typography>
             </TableCell>
