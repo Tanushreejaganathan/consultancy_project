@@ -17,7 +17,11 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // Add other product fields as needed
+    description: {
+        type: String,
+        required: true,
+    },
+    //  Add other product fields as needed
 }, {
     timestamps: true,
 });

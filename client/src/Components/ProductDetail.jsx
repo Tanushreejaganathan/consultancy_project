@@ -66,7 +66,6 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     if (product && quantity > 0) {
       addToCart({ ...product, id: product._id }, quantity);
-      alert(`${quantity} ${product.name}(s) added to cart!`);
     }
   };
 
@@ -168,7 +167,7 @@ const ProductDetail = () => {
           <Typography variant="h5" gutterBottom>
             ₹ {product.price.toFixed(2)}
           </Typography>
-          <Typography variant="body1" paragraph>
+          <Typography variant="body1" >
             {product.description}
           </Typography>
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: 3 }}>

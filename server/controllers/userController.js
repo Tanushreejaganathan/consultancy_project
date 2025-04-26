@@ -2,7 +2,7 @@ const User = require('../models/User'); // Adjust path
 const bcrypt = require('bcryptjs'); // For password comparison
 const jwt = require('jsonwebtoken'); // For generating tokens
 const Product = require('../models/Product'); // Adjust path - needed to check product existence/stock
-
+const JWT_SECRET = process.env.JWT_SECRET;
 // @desc    Get user's cart
 // @route   GET /api/users/me/cart
 // @access  Private
@@ -162,51 +162,83 @@ const updateCartItemQuantity = async (req, res) => {
 // @desc    Remove item from user's cart
 // @route   DELETE /api/users/me/cart/:productId
 // @access  Private
+
+
 const removeItemFromCart = async (req, res) => {
-    const { productId } = req.params; // Get productId from URL parameters
-    const userId = req.user.id;
+    console.log('Incoming request to remove item from cart');
+    console.log('req.params:', req.params);
+
+    const { productId } = req.params;
+
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) {
+        console.error('No Authorization header');
+        return res.status(401).json({ message: 'Unauthorized: No token provided' });
+    }
+
+    const token = authHeader.split(' ')[1];
+    if (!token) {
+        console.error('Token missing in Authorization header');
+        return res.status(401).json({ message: 'Unauthorized: Token missing' });
+    }
+
+    let decodedUser;
+    try {
+        decodedUser = jwt.verify(token, JWT_SECRET); 
+        console.log('Decoded user from token:', decodedUser);
+    } catch (err) {
+        console.error('Invalid token:', err);
+        return res.status(401).json({ message: 'Unauthorized: Invalid token' });
+    }
+
+    const userId = decodedUser.id;
 
     try {
         const user = await User.findById(userId);
+        console.log('Found user:', user);
+
         if (!user) {
+            console.error('User not found with ID:', userId);
             return res.status(404).json({ message: 'User not found' });
         }
 
         const initialLength = user.cart.length;
-        // Filter out the item to be removed
-        user.cart = user.cart.filter(item => item.productId.toString() !== productId);
 
-        // Check if an item was actually removed
+        user.cart = user.cart.filter(item => item.productId && item.productId.toString() !== productId);
+
         if (user.cart.length === initialLength) {
-             return res.status(404).json({ message: 'Item not found in cart to remove' });
+            console.error('Item not found in user cart');
+            return res.status(404).json({ message: 'Item not found in cart' });
         }
 
-        await user.save(); // Save the user document with the item removed
+        await user.save();
+        console.log('Item removed and user saved');
 
-        // Fetch and return the updated cart
         const updatedUser = await User.findById(userId).populate({
-             path: 'cart.productId',
-             model: 'Product',
-             select: 'name price imageUrl stock category'
-         });
-        const populatedCart = updatedUser.cart.map(item => ({
-             id: item.productId._id,
-             name: item.productId.name,
-             price: item.productId.price,
-             image: item.productId.imageUrl,
-             stock: item.productId.stock,
-             category: item.productId.category,
-             quantity: item.quantity,
-             _id: item.productId._id
-        })).filter(item => item.productId);
+            path: 'cart.productId',
+            model: 'Product',
+            select: 'name price imageUrl stock category'
+        });
 
-        res.json(populatedCart); // Send back the updated cart
+        const populatedCart = updatedUser.cart.map(item => ({
+            id: item.productId._id,
+            name: item.productId.name,
+            price: item.productId.price,
+            image: item.productId.imageUrl,
+            stock: item.productId.stock,
+            category: item.productId.category,
+            quantity: item.quantity,
+            _id: item.productId._id
+        }));
+
+        res.json(populatedCart);
 
     } catch (error) {
-        console.error('Error removing item from cart:', error);
+        console.error('Server error while removing from cart:', error);
         res.status(500).json({ message: 'Server error removing item from cart' });
     }
 };
+
 
 
 // Export the controller functions
@@ -215,7 +247,7 @@ module.exports = {
     addItemToCart,
     updateCartItemQuantity,
     removeItemFromCart,
-    loginUser, // Add loginUser here
+    // loginUser, // Add loginUser here
     // registerUser, // If you have registration in the same file
     // Export other user controller functions if they exist in this file
     // e.g., registerUser, loginUser, getUserProfile etc.

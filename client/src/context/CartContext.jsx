@@ -57,7 +57,7 @@ export const CartProvider = ({ children }) => {
         } catch (err) {
             console.error("Cart fetch error:", err);
             if (err.response?.status === 401) {
-                localStorage.removeItem('token'); // Clear invalid token
+                localStorage.removeItem('token'); 
                 setError("Session expired. Please login again.");
             } else {
                 setError("Failed to load cart. Please try again.");
@@ -111,6 +111,11 @@ export const CartProvider = ({ children }) => {
     // Remove item from cart
     const removeFromCart = async (productId) => {
         const token = getAuthToken();
+        console.log(token);
+        if (!token) {
+            alert("Please log in to remove items from cart.");
+            return;
+        }
         if (!token) return;
 
         // Temporarily remove item from cart before making the API request

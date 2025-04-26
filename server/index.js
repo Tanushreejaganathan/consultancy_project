@@ -5,11 +5,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcrypt'); // For password hashing
 const jwt = require('jsonwebtoken'); // For JWT authentication
-
+const userRoutes = require('./routes/userRoutes'); 
 // Import Models
 const UserModel = require('./models/User'); // User model
 const Product = require('./models/Product'); // Product model
 const Order = require('./models/orders'); // Order model
+const { removeItemFromCart } = require('./controllers/userController');
 
 const app = express();
 app.use(cors());
@@ -220,7 +221,8 @@ app.post('/api/users/me/cart', authenticateToken, async (req, res) => {
         res.status(500).json({ message: 'Server error adding to cart' });
     }
 });
-
+//detele item from cart
+app.delete('/api/users/me/cart/:productId', removeItemFromCart);
 // --- Order Routes ---
 // Create an Order
 app.post('/api/orders', authenticateToken, async (req, res) => {

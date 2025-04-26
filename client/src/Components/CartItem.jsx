@@ -1,11 +1,12 @@
 import React from 'react';
 import { IconButton, TableCell, TableRow, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-const CartItem = ({ item, removeFromCart }) => {
+import { useCart } from '../context/CartContext';
+const CartItem = ({ item }) => {
     const price = item?.price || 0;
     const quantity = item?.quantity || 0;
-    
+    const { removeFromCart } = useCart();
+
     return (
         <TableRow>
             {/* <TableCell>
@@ -24,6 +25,7 @@ const CartItem = ({ item, removeFromCart }) => {
             <TableCell>
                 <Typography>₹ {price.toFixed(2)}</Typography>
             </TableCell>
+            
             <TableCell>
                 <Typography>{quantity}</Typography>
             </TableCell>

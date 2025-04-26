@@ -19,9 +19,23 @@ export const Login = ({ setIsLoggedIn }) => {
             const response = await axios.post('http://localhost:3001/login', { email, password });
 
             if (response.data && response.data.token) {
+                // Save the token to localStorage
                 localStorage.setItem('token', response.data.token);
+
+                // Set the logged-in state
                 setIsLoggedIn(true);
-                await fetchCart(); // This line fetches the cart data after login
+
+                // Now fetch the cart after the token is stored
+                const token = localStorage.getItem('token'); // Fetch token from localStorage
+
+                if (token) {
+                    await fetchCart(); // This will now work since token is available
+                } else {
+                    console.error('Token not found! Cannot fetch cart.');
+                    setError('Token missing. Please try logging in again.');
+                }
+
+                // Navigate to the home page after successful login
                 navigate('/home');
             }
         } catch (err) {
