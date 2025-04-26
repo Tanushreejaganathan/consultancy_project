@@ -14,6 +14,7 @@ import {
   DialogActions,
 } from '@mui/material';
 import { useCart } from '../context/CartContext';
+import OrderSummaryDialog from '../Components/OrderSummaryDialog'; // ✅ Import new component
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -21,40 +22,25 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
-  const [openDialog, setOpenDialog] = useState(false); // State for opening/closing dialog
+  const [openUserDialog, setOpenUserDialog] = useState(false);
+  const [openSummaryDialog, setOpenSummaryDialog] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
+    phone: '',
     address: '',
   });
+  const [orderSummary, setOrderSummary] = useState(null);
   const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setLoading(true);
-      setError(null);
       try {
         const response = await axios.get(`http://localhost:3001/api/products/${id}`);
-        if (response.data) {
-          setProduct(response.data);
-        } else {
-          setError('Product data not found');
-        }
+        setProduct(response.data);
       } catch (err) {
         console.error('Error fetching product:', err);
-        if (err.response) {
-          if (err.response.status === 404) {
-            setError('Product not found');
-          } else if (err.response.status === 500) {
-            setError('Server error. Please try again later');
-          } else {
-            setError('Failed to load product details');
-          }
-        } else if (err.request) {
-          setError('Network error. Please check your connection');
-        } else {
-          setError('An unexpected error occurred');
-        }
+        setError(err.response?.data?.message || 'Failed to load product details');
       } finally {
         setLoading(false);
       }
@@ -63,6 +49,13 @@ const ProductDetail = () => {
     fetchProduct();
   }, [id]);
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError(null), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
+
   const handleAddToCart = () => {
     if (product && quantity > 0) {
       addToCart({ ...product, id: product._id }, quantity);
@@ -70,11 +63,11 @@ const ProductDetail = () => {
   };
 
   const handleBuyNow = () => {
-    setOpenDialog(true); // Open the dialog for user information
+    setOpenUserDialog(true);
   };
 
-  const handleDialogClose = () => {
-    setOpenDialog(false); // Close the dialog
+  const handleUserDialogClose = () => {
+    setOpenUserDialog(false);
   };
 
   const handleUserInfoChange = (e) => {
@@ -85,43 +78,60 @@ const ProductDetail = () => {
     }));
   };
 
-  const handleSubmit = async () => {
-    // Validate user info
-    if (!userInfo.name || !userInfo.email || !userInfo.address) {
-      alert('Please fill in all fields');
+  const handleUserInfoSubmit = () => {
+    if (!userInfo.name || !userInfo.email || !userInfo.phone || !userInfo.address) {
+      alert('Please fill all fields.');
       return;
     }
-  
+
+    // Calculate order summary
+    const productTotal = product.price * quantity;
+    const gstAmount = productTotal * 0.18;
+    const shippingCharge = 50; // Flat shipping charge
+    const grandTotal = productTotal + gstAmount + shippingCharge;
+
+    setOrderSummary({
+      productTotal,
+      gstAmount,
+      shippingCharge,
+      grandTotal,
+    });
+
+    setOpenUserDialog(false);
+    setOpenSummaryDialog(true);
+  };
+
+  const handleConfirmOrder = async () => {
     try {
-      // Retrieve the JWT token from localStorage (or wherever it is stored)
-      const token = localStorage.getItem('token'); // Assuming the token is stored as 'token'
-  
+      const token = localStorage.getItem('token');
       if (!token) {
         alert('You must be logged in to place an order.');
         return;
       }
-  
-      // Simulate sending user info to the server
-      const response = await axios.post(
+
+      await axios.post(
         'http://localhost:3001/api/orders',
         {
           productId: product._id,
           quantity,
           userInfo,
+          orderSummary,
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+            Authorization: `Bearer ${token}`,
           },
         }
       );
-  
-      handleDialogClose(); // Close the dialog after successful submission
+
+      alert('Order placed successfully!');
+      setOpenSummaryDialog(false);
     } catch (err) {
       console.error('Error placing order:', err);
-      alert('Failed to place order. Please try again.');
+      alert(err.response?.data?.message || 'Failed to place order.');
     }
   };
+
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', my: 5 }}>
@@ -131,11 +141,19 @@ const ProductDetail = () => {
   }
 
   if (error) {
-    return <Alert severity="error" sx={{ m: 4 }}>{error}</Alert>;
+    return (
+      <Alert severity="error" sx={{ m: 4 }}>
+        {error}
+      </Alert>
+    );
   }
 
   if (!product) {
-    return <Alert severity="warning" sx={{ m: 4 }}>Product not found</Alert>;
+    return (
+      <Alert severity="warning" sx={{ m: 4 }}>
+        Product not found
+      </Alert>
+    );
   }
 
   return (
@@ -143,63 +161,45 @@ const ProductDetail = () => {
       <Typography variant="h3" gutterBottom>
         {product.name}
       </Typography>
+
       <Box sx={{ display: 'flex', gap: 4 }}>
-      <Box
-  sx={{
-    width: '50%',
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'flex-start', // align image to the top
-    justifyContent: 'center',
-    paddingTop: 4, // optional padding for spacing from top
-  }}
->
-  <img
-    src={product.imageUrl}
-    alt={product.name}
-    style={{ maxHeight: '90vh', maxWidth: '100%', objectFit: 'contain' }}
-  />
-</Box>
-
-
+        <Box sx={{ width: '50%', height: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+          />
+        </Box>
 
         <Box sx={{ width: '50%' }}>
           <Typography variant="h5" gutterBottom>
             ₹ {product.price.toFixed(2)}
           </Typography>
-          <Typography variant="body1" >
+          <Typography variant="body1" gutterBottom>
             {product.description}
           </Typography>
+
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: 3 }}>
             <TextField
               type="number"
               label="Quantity"
               value={quantity}
-              onChange={(e) => setQuantity(Math.max(1, e.target.value))}
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
               inputProps={{ min: 1 }}
               sx={{ width: '100px' }}
             />
-            <Button
-              variant="contained"
-              onClick={handleAddToCart}
-              sx={{ height: '56px' }}
-            >
+            <Button variant="contained" onClick={handleAddToCart} sx={{ height: '56px' }}>
               Add to Cart
             </Button>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleBuyNow}
-              sx={{ height: '56px' }}
-            >
+            <Button variant="contained" color="secondary" onClick={handleBuyNow} sx={{ height: '56px' }}>
               Buy Now
             </Button>
           </Box>
         </Box>
       </Box>
 
-      {/* Dialog for collecting user information */}
-      <Dialog open={openDialog} onClose={handleDialogClose}>
+      {/* User Info Dialog */}
+      <Dialog open={openUserDialog} onClose={handleUserDialogClose}>
         <DialogTitle>Enter Your Details</DialogTitle>
         <DialogContent>
           <TextField
@@ -223,6 +223,15 @@ const ProductDetail = () => {
           />
           <TextField
             margin="dense"
+            name="phone"
+            label="Phone Number"
+            type="tel"
+            fullWidth
+            value={userInfo.phone}
+            onChange={handleUserInfoChange}
+          />
+          <TextField
+            margin="dense"
             name="address"
             label="Shipping Address"
             type="text"
@@ -234,12 +243,20 @@ const ProductDetail = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDialogClose}>Cancel</Button>
-          <Button onClick={handleSubmit} variant="contained">
-            Submit Order
+          <Button onClick={handleUserDialogClose}>Cancel</Button>
+          <Button variant="contained" onClick={handleUserInfoSubmit}>
+            Proceed to Summary
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* Order Summary Dialog */}
+      <OrderSummaryDialog
+        open={openSummaryDialog}
+        orderSummary={orderSummary}
+        onClose={() => setOpenSummaryDialog(false)}
+        onConfirm={handleConfirmOrder}
+      />
     </Box>
   );
 };

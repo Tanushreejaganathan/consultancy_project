@@ -4,7 +4,8 @@ import CountUp from "react-countup";
 import { FaHandHoldingUsd, FaBalanceScale, FaChartLine, FaBuilding, FaUsers, FaFileAlt } from "react-icons/fa";
 
 // Import the image
-// import about from "../../public/bann1.png";
+import about from "../asserts/bann1.png";
+// import profile from "../asserts/profile.png"
 
 // Info Data
 const infoData = [
@@ -67,7 +68,7 @@ const About = () => {
         }}
       >
         <img
-          src="klkjdf" // Correctly use the imported image here
+          src={about} // Correctly use the imported image here
           alt="Rounded"
           style={{
             width: "150px",
@@ -116,7 +117,7 @@ const About = () => {
             }}
           >
             <img
-             src = "asd"
+             src = {about}
               alt="About Us"
               style={{
                 width: "100%",

@@ -5,7 +5,23 @@
     "price": 149.99,
     "imageUrl":"https://i.ibb.co/HTY644yw/prodau1.jpg" ,
     "category": "Automotive Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Brand", "value": "Rexnord" },
+        { "label": "Size", "value": "4 inch" },
+        { "label": "Speed", "value": "1500 rpm" },
+        { "label": "Usage", "value": "Moto Pump" },
+        { "label": "Finish", "value": "Polished" },
+        { "label": "Shape", "value": "Rectangular" },
+        { "label": "Model", "value": "Rexnord 1200" },
+        { "label": "Color", "value": "Black" },
+        { "label": "Material", "value": "Metal" },
+        { "label": "Type", "value": "Air Cooling Fan" },
+        { "label": "Voltage", "value": "240 V" },
+        { "label": "Frequency", "value": "50 Hz" },
+        { "label": "Warranty", "value": "1 year" }
+
+    ]
   },
   {
     "name": "Premium All-Weather Floor Mats",

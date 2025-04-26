@@ -227,27 +227,44 @@ app.delete('/api/users/me/cart/:productId', removeItemFromCart);
 // Create an Order
 app.post('/api/orders', authenticateToken, async (req, res) => {
     try {
-        const { productId, quantity, userInfo } = req.body;
-
-        if (!productId || !quantity || !userInfo) {
-            return res.status(400).json({ message: 'All fields are required' });
-        }
-
-        const order = new Order({
-            userId: req.userId,
-            productId,
-            quantity,
-            userInfo,
-        });
-
-        await order.save();
-
-        res.status(201).json({ message: 'Order placed successfully', order });
+      const { productId, quantity, userInfo } = req.body;
+  
+      // Validate request body
+      if (!productId || !quantity || !userInfo) {
+        return res.status(400).json({ message: 'Product ID, quantity, and user info are required.' });
+      }
+  
+      if (typeof quantity !== 'number' || quantity <= 0) {
+        return res.status(400).json({ message: 'Quantity must be a positive number.' });
+      }
+  
+      const { name, email, phone, address } = userInfo;
+  
+      if (!name || !email || !phone || !address) {
+        return res.status(400).json({ message: 'All user info fields are required.' });
+      }
+  
+      if (!req.userId) {
+        return res.status(401).json({ message: 'Unauthorized: User ID missing.' });
+      }
+  
+      // Create and save the order
+      const order = new Order({
+        userId: req.userId,
+        productId,
+        quantity,
+        userInfo,
+      });
+  
+      await order.save();
+  
+      res.status(201).json({ message: 'Order placed successfully.', order });
     } catch (error) {
-        console.error('Error placing order:', error);
-        res.status(500).json({ message: 'Failed to place order' });
+      console.error('Error placing order:', error);
+      res.status(500).json({ message: 'Failed to place order', error: error.message });
     }
-});
+  });
+
 
 // --- Start Server ---
 const PORT = process.env.PORT || 3001;

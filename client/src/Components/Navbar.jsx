@@ -22,33 +22,30 @@ export const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <AppBar sx={{ marginTop: 0 }}>
             <Toolbar>
-                {/* ... Logo/Title ... */}
+                {/* Logo/Title */}
                 <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}>
                     VELAANS
                 </Typography>
 
-                {/* ... Navigation Links ... */}
+                {/* Navigation Links */}
                 <Button color="inherit" component={Link} to="/home">Home</Button>
                 <Button color="inherit" component={Link} to="/products">Products</Button>
-                <Button color="inherit" component={Link} to="/categories">Categories</Button>
+                {/* <Button color="inherit" component={Link} to="/categories">Categories</Button> */}
                 <Button color="inherit" component={Link} to="/about">About</Button>
                 <Button color="inherit" component={Link} to="/contact">Contact</Button>
 
-                {/* ... Cart Icon ... */}
-                 <IconButton color="inherit" component={Link} to="/cart" sx={{ ml: 1 }}>
-                    <Badge badgeContent={totalItems} color="secondary">
-                        <ShoppingCartIcon />
-                    </Badge>
-                </IconButton>
+                {/* Cart Icon (only when logged in) */}
+                {isLoggedIn && (
+                    <IconButton color="inherit" component={Link} to="/cart" sx={{ ml: 1 }}>
+                        <Badge badgeContent={totalItems} color="secondary">
+                            <ShoppingCartIcon />
+                        </Badge>
+                    </IconButton>
+                )}
 
-                {/* ... Conditional Login/Logout ... */}
-                 {isLoggedIn ? (
-                    <IconButton
-                        color="inherit"
-                        onClick={handleLogout} // Uses updated handleLogout
-                        sx={{ ml: 1 }}
-                        aria-label="logout"
-                    >
+                {/* Conditional Login/Logout */}
+                {isLoggedIn ? (
+                    <IconButton color="inherit" onClick={handleLogout} sx={{ ml: 1 }} aria-label="logout">
                         <FiLogOut />
                     </IconButton>
                 ) : (
