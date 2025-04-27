@@ -14,7 +14,7 @@ import {
   DialogActions,
 } from '@mui/material';
 import { useCart } from '../context/CartContext';
-import OrderSummaryDialog from '../Components/OrderSummaryDialog'; // ✅ Import new component
+import OrderSummaryDialog from '../Components/OrderSummaryDialog';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -45,7 +45,6 @@ const ProductDetail = () => {
         setLoading(false);
       }
     };
-
     fetchProduct();
   }, [id]);
 
@@ -84,10 +83,9 @@ const ProductDetail = () => {
       return;
     }
 
-    // Calculate order summary
     const productTotal = product.price * quantity;
     const gstAmount = productTotal * 0.18;
-    const shippingCharge = 50; // Flat shipping charge
+    const shippingCharge = 50;
     const grandTotal = productTotal + gstAmount + shippingCharge;
 
     setOrderSummary({
@@ -163,6 +161,7 @@ const ProductDetail = () => {
       </Typography>
 
       <Box sx={{ display: 'flex', gap: 4 }}>
+        {/* Product Image */}
         <Box sx={{ width: '50%', height: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
             src={product.imageUrl}
@@ -171,6 +170,7 @@ const ProductDetail = () => {
           />
         </Box>
 
+        {/* Product Details */}
         <Box sx={{ width: '50%' }}>
           <Typography variant="h5" gutterBottom>
             ₹ {product.price.toFixed(2)}
@@ -179,6 +179,30 @@ const ProductDetail = () => {
             {product.description}
           </Typography>
 
+          {/* Specifications */}
+          {product.specs && product.specs.length > 0 && (
+            <Box mt={4}>
+              <Typography variant="h6" gutterBottom>
+                Specifications
+              </Typography>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <tbody>
+                  {product.specs.map((spec, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid #e0e0e0' }}>
+                      <td style={{ padding: '8px 16px', color: '#374151', fontWeight: 500 }}>
+                        {spec.label}
+                      </td>
+                      <td style={{ padding: '8px 16px', color: '#4B5563' }}>
+                        {spec.value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Box>
+          )}
+
+          {/* Quantity, Add to Cart, Buy Now */}
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: 3 }}>
             <TextField
               type="number"
