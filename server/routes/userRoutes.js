@@ -1,16 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { protect } = require('../middleware/authMiddleware'); // Adjust path
+const { protect } = require('../middleware/authMiddleware'); 
 const {
     getUserCart,
     addItemToCart,
     updateCartItemQuantity,
     removeItemFromCart,
-    // You might have other user routes here (get profile, update profile etc.)
-} = require('../controllers/userController'); // Adjust path
-
-// --- Cart Routes ---
-// All routes below are protected and require a logged-in user
+} = require('../controllers/userController'); 
 
 // GET /api/users/me/cart - Fetch user's cart
 router.get('/me/cart', protect, getUserCart);
@@ -25,8 +21,6 @@ router.put('/me/cart/:productId', protect, updateCartItemQuantity);
 router.delete('/me/cart/:productId', protect, removeItemFromCart);
 
 
-// --- Other User Routes ---
-// Example: router.get('/profile', protect, getUserProfile);
 
 
 module.exports = router;

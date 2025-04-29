@@ -1,282 +1,599 @@
 [
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
-    "imageUrl":"https://i.ibb.co/HTY644yw/prodau1.jpg" ,
+    "name": "Servo 2T Supreme Two Stroke Engine Oil ",
+    "description": "Features Low exhaust smoke. Maintains engine cleanliness. Minimises spark plug fouling.Features Low exhaust smoke. Maintains engine cleanliness. Minimises spark plug fouling. Reduces port deposits and ring sticking. Prevents seizure and scuffing. Is easily pumpable by oil injection system",
+    "price": 1000,
+    "imageUrl":"https://i.ibb.co/hx8KrRXR/prodal1.jpg"  ,
     "category": "Automotive Lubricants",
     "stock": 50,
     "specs": [
-        { "label": "Brand", "value": "Rexnord" },
-        { "label": "Size", "value": "4 inch" },
-        { "label": "Speed", "value": "1500 rpm" },
-        { "label": "Usage", "value": "Moto Pump" },
-        { "label": "Finish", "value": "Polished" },
-        { "label": "Shape", "value": "Rectangular" },
-        { "label": "Model", "value": "Rexnord 1200" },
-        { "label": "Color", "value": "Black" },
-        { "label": "Material", "value": "Metal" },
-        { "label": "Type", "value": "Air Cooling Fan" },
-        { "label": "Voltage", "value": "240 V" },
-        { "label": "Frequency", "value": "50 Hz" },
-        { "label": "Warranty", "value": "1 year" }
+        { "label": "Viscosity", "value": "2T Oi" },
+        { "label": "Engine Type", "value": "2-Stroke Engines" },
+        { "label": "Product Features", "value": "SServo 2T Supreme offers superior detergency to prevent carbon deposits, a low-smoke formula for cleaner emissions, excellent lubricity to reduce engine wear, corrosion protection to guard engine parts, and smooth engine operation for better throttle response and pickup." },
+        { "label": "Application", "value": "Suitable for two-stroke engines of auto-rickshaws, mopeds, and agricultural equipments" },
+        { "label": "Product Range", "value": "Servo 2T Supreme (low-smoke, premium quality)" },
+        { "label": "Net Weight/Content", "value": "500 ml" },
+        { "label": "Quality", "value": "API TC (American Petroleum Institute Two-Stroke Specification)" }
 
     ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
-    "imageUrl":"https://i.ibb.co/8g9MbYp6/prodau2.jpg",
+    "name": "Shell Advance 4T Ax7 15W-50 Engine Oil Pack",
+    "description": "The perfect solution for enhancing your vehicle's performance, this premium engine oil ensures smooth operation and optimal protection. Formulated to withstand high temperatures, it provides excellent stability, reducing engine wear and tear. Its advanced technology promotes fuel efficiency, allowing for a more responsive driving experience and maximum protection.",
+    "price": 1200,
+    "imageUrl":"https://i.ibb.co/dsb68TY6/prodau5.jpg" ,
     "category": "Automotive Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Viscosity", "value": "15W-50" },
+        { "label": "Engine Type", "value": "4-Stroke Motorcycles" },
+        { "label": "Product Features", "value": "Active Cleansing Technology: Keeps the engine cleaner for longer." },
+        { "label": "Application", "value": "Ideal for commuter bikes, cruisers, sports bikes, and premium motorcycles.s" },
+        { "label": "Product Range", "value": "For high-load, high-heat bikes" },
+        { "label": "Package", "value": "1.25 litre" },
+        { "label": "Quality", "value": "Premium Semi-Synthetic Technology" }
+
+    ]
   },
   {
-    "name": "Synthetic Blend Motor Oil 5W-30",
-    "description": "High-quality synthetic blend motor oil for gasoline engines. Provides excellent protection and performance. 5 Quart.",
-    "price": 29.95,
+    "name": "Servo 4T Engine Oil",
+    "description": "A high performance engine oil designed to enhance the efficiency of your vehicle, this automotive oil ensures smooth operation and optimal engine protection. Formulated with advanced additives, it minimizes wear and tear, helping to extend the life of your engine. Ideal for both daily commutes and long drives, it provides excellent lubrication and reduces friction, resulting in improved fuel economy. ",
+    "price": 3450,
     "imageUrl": "https://i.ibb.co/RkRw7MpB/prodau3.jpg" ,
     "category": "Automotive Lubricants",
-    "stock": 120
+    "stock": 120,
+    "specs": [
+        { "label": "Viscosity", "value": "20W-40" },
+        { "label": "Engine Type", "value": "Suitable for air-cooled and oil-cooled engines" },
+        { "label": "Product Features", "value": "Superior Wear Protection: Guards engine, gearbox, and clutch against wear." },
+        { "label": "Application", "value": "Recommended for use in all leading motorcycles and scooters requiring 4-stroke engine oil." },
+        { "label": "Product Range", "value": "lighter/heavy bikes and scooters" },
+        { "label": "Package", "value": "900 ml" },
+        { "label": "Quality", "value": "Premium quality mineral-based engine oil." }
+
+    ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Castrol EDGE 5W-40 ENGINE OIL",
+    "description": "The intense pressures in today s engine cause friction that can waste upto 10% of engine performance. Castrol EDGE with Fluid TITANIUM physically transforms to be stronger under pressure and reduces friction to Unlock the True performance of your engine.APPLICATIONS Castrol EDGE 0W 40 is an advanced full syntheic engine oil suitable for use in Petrol Diesel and Hybrid cars.Friction is the enemy of performance. ",
+    "price": 2500,
     "imageUrl":"https://i.ibb.co/4ZPNLLB3/prodau4.jpg" ,
     "category": "Automotive Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Viscosity", "value": "SAE 5W-40" },
+        { "label": "Engine Type", "value": "Petrol engines,Diesel engines" },
+        { "label": "Product Features", "value": "Excellent High and Low Temperature Performance: Provides quick cold start and strong protection at high temperatures." },
+        { "label": "Application", "value": "Vehicles requiring ACEA C3, API SP, or manufacturer-specific approvals like BMW Longlife-04, MB 229.51, VW 505 00/505 01, etc." },
+        { "label": "Product Range", "value": "Specially formulated for turbocharged diesel engines." },
+        { "label": "Package", "value": "1 litre" },
+        { "label": "Quality", "value": "high-performance engines, especially for low emission systems" }
+
+    ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Valvoline 1 Litre DuraBlend 10W-40 Synthetic Blend Engine Oil",
+    "description": "The advanced formulation of this synthetic blend engine oil is designed to enhance engine performance and longevity. With specially selected base oils, it effectively reduces oil consumption and minimizes volatility. This product not only lowers friction  but also works diligently to clean and protect your engine from harmful deposits of the products ",
+    "price": 1750,
     "imageUrl":"https://i.ibb.co/yc77LnGp/syp1.jpg" ,
     "category": "Synthetic Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Viscosity", "value": "10W-40" },
+        { "label": "Engine Type", "value": "Compatible with turbocharged and naturally aspirated engines" },
+        { "label": "Product Features", "value": "SProtects critical engine parts even under extreme conditions and Offers better performance than conventional oils with enhanced durability." },
+        { "label": "Application", "value": "Suitable for cars, SUVs, light trucks, and motorcycles requiring 10W-40 grade." },
+        { "label": "Product Range", "value": "For lighter duty engines and synthetic blends" },
+        { "label": "Package", "value": "1 litre" },
+        { "label": "Quality", "value": "Trusted by professional mechanics and global automotive brands." }
+
+    ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "AutoZone Castrol EDGE Advanced Engine Oil High Mileage Full Synthetic 10W-30 1 Quart",
+    "description": "The advanced engine oil is designed for high mileage vehicles, providing superior protection and performance. Its full synthetic formulation enhances engine efficiency and reduces wear, ensuring a smoother operation even under demanding conditions. ",
+    "price": 4500,
     "imageUrl":"https://i.ibb.co/5hs8nwPk/syp2.jpg",
     "category": "Synthetic Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Viscosity", "value": "10W-30" },
+        { "label": "Engine Type", "value": "High-mileage 4-Stroke Engines" },
+        { "label": "Product Features", "value": "Strengthens oil molecules to protect against breakdown and reduce friction for maximum performance." },
+        { "label": "Application", "value": "Suitable for a wide range of engines, including those operating in stop-and-go city driving, highways, or rough conditions." },
+        { "label": "Product Range", "value": "ideal for warmer climates for performance vehicles" },
+        { "label": "Package", "value": "1 quart" },
+        { "label": "Quality", "value": "Approved for use in vehicles requiring high-mileage oil formulations." }
+
+    ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "AutoZone Mobil 1 Advanced Engine Oil High Mileage Full Synthetic 10W-30 5 Quarts",
+    "description": "Product Description Mobil 1 High Mileage Full Synthetic Motor Oil 10w-30 Is Designed to Help Extend Engine Life for High Mileage Engines of All Ages With Over 75,000 Miles and Contains a Proprietary Blend That Protects 10,000 Miles Between Oil Changes. Mobil 1 High Mileage Contains a Seal Conditioner to Help Reduce Oil Leaks in Higher Mileage Vehicles.",
+    "price": 4470,
     "imageUrl":"https://i.ibb.co/0yNkJ8hw/syp3.jpg" ,
     "category": "Synthetic Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+        { "label": "Viscosity", "value": "10W-30" },
+        { "label": "Engine Type", "value": "High-mileage 4-Stroke Engines" },
+        { "label": "Product Features", "value": " Reduces oil consumption and prevents burn-off in high-mileage engines and Helps prevent sludge and deposit buildup, keeping your engine clean and efficient." },
+        { "label": "Application", "value": "Ideal for older engines, those experiencing oil leaks, or excessive oil consumption." },
+        { "label": "Product Range", "value": "For better fuel economy in moderate climates" },
+        { "label": "Package", "value": "1 quart" },
+        { "label": "Quality", "value": "Suitable for vehicles that require a high-performance synthetic oil." }
+
+    ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Castrol Magnatec 10W-40 Engine Oil",
+    "description": "The advanced formulation of this synthetic engine oil provides exceptional protection for your vehicle, enhancing performance and efficiency. Designed to cling to engine parts, it minimizes wear during start ups, ensuring a smoother drive. This oil is ideal for automotive gasoline engines that require a specific lubricant type, offering reliable performance under various driving conditions. Its innovative technology helps maintain engine cleanliness. ",
+    "price": 2860,
     "imageUrl":"https://i.ibb.co/sv7MGKfq/syp4.jpg",
     "category": "Synthetic Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "10W-40" },
+      { "label": "Engine Type", "value": "Petrol and Diesel Engines (where 10W-30 is recommended)" },
+      { "label": "Product Features", "value": "Reduces internal friction, improving fuel economy without compromising performance " },
+      { "label": "Application", "value": "Suitable for a variety of driving conditions, including highway, city, and rough terrain driving." },
+      { "label": "Product Range", "value": "For better fuel economy in moderate climates" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Fuel Economy and Emission Performance Standards" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Divyol ECO4 SAE 20W40 API CF SF Gas Engine Oil ",
+    "description": "Gas engine oils are lubricants made for gas engines, i.e. heavy-duty industrial engines that can run continuously at full load. They are made up of preservatives and base oil, primarily used for mechanical engines to decrease machine tears and wear. As seasoned gas engine oil suppliers, we at Gandhar Oil provide you with only the best quality products. To cater to your needs, we supply several types of the aforementioned .",
+    "price": 3000,
     "imageUrl":"https://i.ibb.co/C5TVmXQS/prodg1.jpg",
     "category": "Gas Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "20W-40" },
+      { "label": "Engine Type", "value": "Suitable for light-duty and heavy-duty vehicles" },
+      { "label": "Product Features", "value": "Guards against rust, corrosion, and oxidation, improving engine durability. " },
+      { "label": "Application", "value": "Suitable for a wide range of vehicles, including trucks, cars, and industrial engines." },
+      { "label": "Product Range", "value": "For colder temperatures and more fuel-efficient operations" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Provides the required protection for both commercial and passenger vehicles" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Divyol Power Trans C3 C4 SAE 10 Transmission Oil ",
+    "description": "Transmission oils are lubricants that are used in internal-combustion engines. These oils are usually a blend of synthetic and mineral oils, with the synthetic oils making up the majority of the mix. Vehicle transmission fluids also typically include additives to help in their ability to resist wear, tear, heat, and friction.There are different types of transmission fluids.",
+    "price": 1499,
     "imageUrl":"https://i.ibb.co/Q3dMJqRC/prodg2.jpg" ,
     "category": "Gas Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 10" },
+      { "label": "Engine Type", "value": "Hydraulic Systems" },
+      { "label": "Product Features", "value": "Ensures smooth clutch and brake operation, preventing chatter and slippage and Thermal Stability: . " },
+      { "label": "Application", "value": "Compatible with off-highway equipment where Allison C-4, Caterpillar TO-2, or similar specifications are recommended." },
+      { "label": "Product Range", "value": "For standard hydraulic and transmission systems" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Industry standards for heavy-duty transmission fluids" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Motul 5W30 300V 4T Factory Line Motorcycle Automobile Oil ",
+    "description": "The ideal choice for motorcycle enthusiasts, this advanced engine oil enhances performance with its 100% synthetic formulation. Designed specifically for 4-stroke engines, it provides exceptional lubrication, ensuring smooth operation and maximum power output maintaining stable oil .",
+    "price": 2555,
     "imageUrl":"https://i.ibb.co/VYfCZdCR/prode1.jpg" ,
     "category": "Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "5W-30" },
+      { "label": "Engine Type", "value": "Suitable for high-performance Motorcycles and Racing Automobiles" },
+      { "label": "Product Features", "value": "Superior film strength protects against shear and wear even at extreme RPMs and high temperatures and Reduces internal friction to maximize engine performance." },
+      { "label": "Application", "value": "Designed for high-performance motorcycles (road racing, motocross, supermoto)." },
+      { "label": "Product Range", "value": "For endurance and heavy-duty race conditions" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Racing-grade performance meeting extreme endurance and track racing requirements."}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Castrol Magnatec Diesel 15W-40 Engine Oil",
+    "description": "Traffic congestion has doubled in the past decade, so that today even a normal driver can stop and start upto 18000 times a year. Thats annoying, but worse, it slowly damages your engine permanently.Castrol MAGNATEC DIESEL contains dedicated diesel technology and breakthrough DUALOCK molecules that cling to critical engine parts and lock together.",
+    "price": 1850,
     "imageUrl":"https://i.ibb.co/7dQJSbsz/prode2.jpg" ,
     "category": "Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "15W-40" },
+      { "label": "Engine Type", "value": "Suitable for light commercial vehicles, SUVs, and passenger diesel vehicles" },
+      { "label": "Product Features", "value": "Maintains oil film strength at high temperatures, ensuring engine protection. " },
+      { "label": "Application", "value": "Designed for both stop-start city driving and long highway trips." },
+      { "label": "Product Range", "value": "For petrol and diesel vehicles needing semi-synthetic protection" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Suitable for many leading diesel engine OEMs’ specifications"}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "name": "Motul 3000 4T PLUS 20W-40 Engine Oil for Bikes",
+    "description": "A high quality motorcycle engine oil designed to provide optimal performance and protection for your bike. This advanced lubricant features innovative technology that enhances engine efficiency while ensuring smooth operation. Suitable for a wide range of popular motorcycle brands, it meets industry standards for reliability and performance.",
     "price": 149.99,
     "imageUrl":"https://i.ibb.co/j9cWTygC/prode3.jpg" ,
     "category": "Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": " 20W-40" },
+      { "label": "Engine Type", "value": "4-Stroke Motorcycles" },
+      { "label": "Product Features", "value": ".Maintains performance even under high temperatures and tough riding conditions. " },
+      { "label": "Application", "value": "Suitable for commuter bikes, standard motorcycles, scooters, and light sport bikes." },
+      { "label": "Product Range", "value": "For advanced protection in performance bikes" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Japanese Automotive Standards Organization for optimal wet clutch performance"}
+
+]
+    
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "ELF Automotive Oils Moto 2 Champ",
+    "description": "ELF MOTO 2 CHAMP is a semi-synthetic base 2T oil. It is formulated with high performance additives to exceed the world's highest emission standards and maximise fuel efficiency. ELF MOTO 2 CHAMP is specially recommended for 2-stroke motorcycles, scooters & mopeds manufactured by Yamaha, Suzuki, Bajaj, LML, Kinetic, Honda, TVS, Kawasaki, Piaggio. It ensures complete fuel combustion and near zero smoke level due to its easy miscibility with petrol and prevents pre-ignition at high speeds.",
+    "price": 1500,
     "imageUrl":"https://i.ibb.co/s475Q2G/prode4.jpg" ,
     "category": "Engine Oil",
-    "stock": 50
+    "stock": 50,"specs": [
+      { "label": "Viscosity", "value": "2T Oil" },
+      { "label": "Engine Type", "value": "Small 2-Stroke Engines" },
+      { "label": "Product Features", "value": "Minimizes visible exhaust smoke for cleaner emissions and Prevents deposits on pistons and exhaust systems for cleaner engine operation." },
+      { "label": "Application", "value": "Suitable for commuter bikes, standard motorcycles, scooters, and light sport bikes." },
+      { "label": "Product Range", "value": "Recommended for auto-lubrication (injection systems) and premix systems." },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"American Petroleum Institute Two-Stroke Engine Service"}
+
+]
+
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Helix HX8 Synthetic 5W 30 Oil Lubricants",
+    "description": "A top-notch product designed to optimize your engine's performance. Specially formulated with advanced synthetic technology, this oil lubricant ensures superior protection against wear, reducing friction and enhancing fuel efficiency. Its 5W 30 viscosity grade guarantees smooth cold starts and exceptional high-temperature performance, making it suitable for a wide range of vehicles. ",
+    "price": 1569,
     "imageUrl":"https://i.ibb.co/chdyBdzr/prodo1.jpg" ,
     "category": "Oil Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 5W-30" },
+      { "label": "Engine Type", "value": "Compatible with vehicles fitted with turbochargers, catalytic converters, and direct injection systems." },
+      { "label": "Product Features", "value": "Protects and extends the life of emission control systems like DPFs and catalytic converters." },
+      { "label": "Application", "value": "Recommended for modern high-performance engines requiring synthetic low-viscosity oils." },
+      { "label": "Product Range", "value": "for older engines requiring thicker oil" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Suitable for use where manufacturers recommend SAE 5W-30 synthetic oil."}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Spirax Oil For Cars Of All Fuel Types",
+    "description": "A high performance lubricant designed for optimal protection and efficiency, this oil is ideal for vehicles of all fuel types. Its advanced formulation ensures smooth operation, reducing wear and tear on critical components. Engineered to withstand extreme conditions, it enhances durability and overall performance. With easy application and compatibility with various vehicle models, it is a reliable choice for car enthusiasts and everyday drivers alike. Choose this quality oil to keep your vehicle running smoothly and efficiently, ensuring longevity .",
+    "price": 2567,
     "imageUrl":"https://i.ibb.co/XfXB8SjK/prodo2.png" ,
     "category": "Oil Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 75W-85," },
+      { "label": "Engine Type", "value": "Suitable for Petrol, Diesel, and Hybrid Cars" },
+      { "label": "Product Features", "value": "Optimizes clutch performance in manual and automatic gearboxes." },
+      { "label": "Application", "value": "Ideal for city commuting, highway driving, and heavy-load conditions." },
+      { "label": "Product Range", "value": "High-performance ATF for advanced automatics" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Dexron III, Mercon V standards (for ATF fluids)."}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "SHELL HELIX HX5 SN/CF, A3/B3 15W-40",
+    "description": "Helps to remove sludge from dirty engines. Helps to protect against wear and neutralise corrosive combustion acids High total base number (TBN) to help combat corrosion and help to prevent engine damage and prolong engine life, For gasoline, diesel and gas engines.Shell Helix HX5 15W-40 is a high-quality premium multigrade motor oil designed to offer reliable engine protection, excellent cleanliness, and smooth performance for a wide range of petrol and diesel engines. Formulated with Shell's active cleansing technology, it helps prevent dirt and sludge build-up, ensuring longer engine life and consistent performance.",
+    "price": 2555,
     "imageUrl":"https://i.ibb.co/27WnhHW7/prodo3.jpg",
     "category": "Oil Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 15W-40" },
+      { "label": "Engine Type", "value": "Also suitable for engines with fuel-injected, turbocharged, or multi-valve technologies." },
+      { "label": "Product Features", "value": "Resists oil breakdown under severe driving conditions." },
+      { "label": "Application", "value": "Suitable for passenger cars, SUVs, light commercial vehicles." },
+      { "label": "Product Range", "value": "fully synthetic for top-tier protection" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Manufacturer approvals from various car makers requiring 15W-40 specification oils."}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "SAVSOL HY Fluid AW Hydraulic Oils",
+    "description": "SAVSOL HY FLUID AW Series Hydraulic Oils are high performance Anti-Wear hydraulic oil blended from highly refined hydro treated high viscosity index base oils fortified with Anti-Wear, Anti-Rust, Anti-Oxidant, Anti-corrosion and anti-foam additives to provide excellent protection against wear, rust & corrosion and oxidation.SAVSOL HY Fluid AW Hydraulic Oils are high-performance anti-wear hydraulic fluids specially formulated to provide outstanding protection and efficient performance in hydraulic systems. Blended with premium base oils.",
+    "price": 2456,
     "imageUrl":"https://i.ibb.co/d4KVQf64/prodo4.jpg",
     "category": "Oil Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "ISO VG 32" },
+      { "label": "Engine Type", "value": "Also used in circulation systems, compressors, and moderately loaded gear systems (where appropriate)" },
+      { "label": "Product Features", "value": "Minimizes wear on pumps, valves, and hydraulic motors, ensuring longer equipment life." },
+      { "label": "Application", "value": "Presses and other hydraulic applications in manufacturing industries" },
+      { "label": "Product Range", "value": "for systems requiring high-viscosity hydraulic oils)" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Cincinnati Milacron P-68, P-69, P-70 approvals"}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Rimula R2 40 Heavy Duty Diesel Engine Oil,",
+    "description": "Shell Rimula R2 Extra Energised Protection oil uses proven combinations of additives that adapt to your engine, keeping it clean by carrying away dirt. Reacting to the needs of your engine, the oil releases its protective energy when necessary, to help ensure reliable and consistent protection against deposits and wear, whilst resisting thickening by heat. Approved by leading engine makers, Shell Rimula R2 Extra is suitable ",
+    "price": 1510,
     "imageUrl":"https://i.ibb.co/S4Ln2jZd/podd1.jpg",
     "category": "Diesel Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 40 (Monograde)" },
+      { "label": "Engine Type", "value": "Also compatible with certain stationary engines and older petrol engines where SAE 40 grade is recommended." },
+      { "label": "Product Features", "value": "Protects critical engine components, reducing wear and extending engine life." },
+      { "label": "Application", "value": "Stationary engines and generators operating on diesel fuel." },
+      { "label": "Product Range", "value": "Lower viscosity variant for lighter diesel applications" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"API SF (for certain petrol engines)"}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Servo Pride TC 15W-40 Diesel Engine Oil",
+    "description": "Servo Pride TC 15W-40 is a premium quality, commercial multipurpose diesel engine oil. The oil is designed for the most severe performance requirements of modern, highly rated turbo charged diesel engines for the road transport fleet applications. It assures outstanding protection against high temperature engine deposits, oil degradation, oil thickening and corrosion resistance. The oil is having excellent shear stability to maintain viscosity.",
+    "price": 1459,
     "imageUrl":"https://i.ibb.co/SwdppjCJ/prodd2.jpg"  ,
     "category": "Diesel Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 15W-40" },
+      { "label": "Engine Type", "value": "Suitable for both turbocharged and naturally aspirated engines." },
+      { "label": "Product Features", "value": "Prevents sludge and deposit formation, promoting smoother performance" },
+      { "label": "Application", "value": "Construction equipment (earthmovers, dumpers, loaders" },
+      { "label": "Product Range", "value": "Enhanced performance variant for extreme conditions" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Suitable for engines complying with BS-III and earlier emission norms."}
+
+]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Servo Pride 30 Diesel Engine Oil",
+    "description": "Servo Pride oils are heavy duty engine oils for diesel service. These oils are red in colour and blended from selected highly refined, high viscosity index base stocks and contain well balanced group of additives, to provide high detergency, dispersancy and anti oxidation characteristics to meet the stated performance standards.These oils are unlikely to present any significant health or safety hazard when properly used in the recommended application and good standards.",
+    "price": 1650,
     "imageUrl":"https://i.ibb.co/YTQ2FxWB/prodd3.jpg" ,
     "category": "Diesel Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 30" },
+      { "label": "Engine Type", "value": "Suitable for older generation and heavy-duty diesel engines." },
+      { "label": "Product Features", "value": "Maintains oil integrity even at high operating temperatures." },
+      { "label": "Application", "value": "Trucks, buses, and light commercial vehicles" },
+      { "label": "Product Range", "value": "multigrade variant for newer diesel engines" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Suitable for vehicles and engines requiring monograde SAE 30 oil."}
+
+]
+
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Divyol Automotive Heavy Duty Diesel Engine Oil",
+    "description": "Heavy duty diesel engine oils are specifically created lubricants for commercial transport, agriculture, or mining equipment and vehicles fueled by diesel, Gandhar Oil Refinery, one of the top heavy diesel engine oil manufacturers around the world, offers a broad assortment of heavy duty diesel engine oils under our flagship brand name Divyol, Divyols range of heavy duty diesel engine oils are suitable for light, medium, and heavy commercial vehicles, and also new low emission engines with ULSD.",
+    "price": 2345,
     "imageUrl":"https://i.ibb.co/LDvhFbSw/prodd4.jpg" ,
     "category": "Diesel Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "20W-40," },
+      { "label": "Engine Type", "value": "Heavy-duty diesel engines" },
+      { "label": "Product Features", "value": "Supports reduced maintenance frequency under recommended conditions." },
+      { "label": "Application", "value": "Diesel-powered industrial generator sets" },
+      { "label": "Product Range", "value": "Other Divyol specialized lubricants for commercial vehicles and off-road equipment" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value":"Suitable for engines meeting older Bharat Stage (BS) and Euro emission norms."}
+
+]
+
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell 550052921 Engine Oil For Cars Helix Taxi",
+    "description": "The premium engine oil is designed to enhance your vehicle s performance, ensuring smooth operation and optimal fuel efficiency. Its advanced formulation provides excellent protection against engine wear, promoting longevity and reliability. Ideal for various driving conditions, this oil helps maintain engine cleanliness and prevents sludge buildup, making it a perfect choice for both everyday use and demanding environments. Experience superior lubrication that supports engine responsiveness.",
+    "price": 1490,
     "imageUrl":"https://i.ibb.co/prGH2HGZ/prodc1.jpg",
     "category": "Car Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 5W-30" },
+      { "label": "Engine Type", "value": "Specially designed for cars under heavy-duty, continuous operation like taxis and ride-share fleets." },
+      { "label": "Product Features", "value": "Provides fast engine protection in low temperatures. " },
+      { "label": "Application", "value": "Private cars operating in severe city traffic" },
+      { "label": "Product Range", "value": "Also part of the Shell Helix Ultra series for other premium vehicle segments." },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "European standards for high-performance engines" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Helix HX7 10W-40 Semi Synthetic Car Engine Oil",
+    "description": "Helps to keep engines clean and running efficiently, Makes use of both synthetic and mineral base stocks to achieve higher performance levels than can be formulated from mineral oils alone, Helps to extend engine life by protecting against wear, even in daily traffic conditions, For gasoline, diesel and gas engines; also suitable for biodiesel and gasoline/ethanol blends and Helps to extend engine life by protecting against wear, even in daily traffic.",
+    "price": 1670,
     "imageUrl":"https://i.ibb.co/N2WNMQGh/prodc2.jpg" ,
     "category": "Car Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "10W-40" },
+      { "label": "Engine Type", "value": "Compatible with engines fitted with turbochargers, multi-valves, or fuel-injection systems." },
+      { "label": "Product Features", "value": " Offers better low-temperature performance and high-temperature stability compared to conventional oils." },
+      { "label": "Application", "value": "Vehicles operating in both city and highway conditions." },
+      { "label": "Product Range", "value": "Shell Helix HX7 10W-40" },
+      { "label": "Package", "value": "2 litres" },
+      { "label": "Quality", "value": "American Petroleum Institute standards for petrol and diesel engines" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Helix Ultra 5W-40 Fully Synthetic Car Engine Oil",
+    "description": "Fully synthetic motor oil Shells most advanced formulation for high-performance engines, Todays vehicles need a motor oil that keeps pace with their changing demands and does more to improve performance and engine life. This is why Shell came up with an entirely new way to produce synthetic base oils, made from natural gas with our patented Shell PurePlus Technology, Shell Helix Ultra is a range of top-tier motor oil that is formulated using the unique Shell PurePlus Technology, yielding a motor oil that actively helps keep engines clean. Active Cleansing Technology has always been at the heart of Shell Helix. ",
+    "price": 3600,
     "imageUrl":"https://i.ibb.co/zHNJ2Sf3/prodc3.jpg" ,
     "category": "Car Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 5W-40" },
+      { "label": "Engine Type", "value": "Ideal for turbocharged, direct injection, and high-performance engines." },
+      { "label": "Product Features", "value": " Maintains optimal viscosity at extreme cold and high temperatures." },
+      { "label": "Application", "value": "Cars operating in severe driving conditions — city traffic, highways, extreme weather." },
+      { "label": "Product Range", "value": "Approved by leading OEMs like Ferrari, BMW, Mercedes-Benz, VW, Porsche" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Approved by leading OEMs like Ferrari, BMW, Mercedes-Benz, VW, Porsche" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Divyol Spectro LX 10W30 S Passenger Car Motor Oil",
+    "description": "Motor oil works to reduce friction as well as wear and tear on moving car parts, and also keeps the engine cool and sludge and varnish free. Passenger car oils also neutralise any acids that are created from fuel and from the oxidation of the lubricant, and improve the sealing of piston rings. Gandhar Oil Refinery, as one of Indias finest passenger car motor oil manufacturers, offers a wide range of passenger car motor oils that meet API and viscometric specifications. Divyols passenger car engine oils are designed to meet the most stringent requirements.",
+    "price": 2300,
     "imageUrl":"https://i.ibb.co/1YYtQ4Xq/prodc4.jpg" ,
     "category": "Car Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 10W-30" },
+      { "label": "Engine Type", "value": "Compatible with naturally aspirated and turbocharged engines." },
+      { "label": "Product Features", "value": " Reduces friction for smoother engine performance and better mileage." },
+      { "label": "Application", "value": "Ideal for stop-and-go city driving and long-distance highway travel" },
+      { "label": "Product Range", "value": "Divyol Spectro range for various grades" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Indian Standards for automotive oils" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Servo Engine Oil For Gearless Scooters ",
+    "description": "The perfect choice for gearless scooters, this high quality engine oil enhances performance and longevity. Formulated to provide excellent protection, it ensures smooth operation and optimal fuel efficiency, making your rides more enjoyable. Its advanced formulation minimizes engine wear and keeps components clean, reducing maintenance costs. Designed specifically for scooters, it meets the demands of urban commuting, offering reliability and efficiency in every drop. Experience a noticeable difference in your scooter's performance.",
+    "price": 1499,
     "imageUrl":"https://i.ibb.co/8D61vJSZ/prodb1.jpg" ,
     "category": "Bike Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "10W-30 " },
+      { "label": "Engine Type", "value": "4-Stroke petrol engines in gearless scooters " },
+      { "label": "Product Features", "value": " Optimized friction characteristics for smooth clutch engagement in CVT scooters." },
+      { "label": "Application", "value": "Ideal for popular models like Honda Activa, TVS Jupiter, Suzuki Access, Hero Maestro, Yamaha Fascino, etc." },
+      { "label": "Product Range", "value": "Servo 4T SAE 10W30 Scooter Engine Oil" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "suitable for scooters with CVT, where lower friction is required" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "ELF Moto 4 Pro 1 Litre Engine Oil [20W-40]",
+    "description": "A premium choice for motorcycle enthusiasts, this engine oil is designed to enhance performance and longevity. With advanced purification technology, it offers superior protection for engine components, ensuring optimal function even in high-temperature conditions. This oil significantly reduces wear on vital parts and prevents clutch slippage, making it ideal for a wide range of two-wheelers. Its formulation exceeds rigorous industry standards, delivering exceptional valve train wear and high-temperature performance. ",
+    "price": 1800,
     "imageUrl":"https://i.ibb.co/mrvQY3Pw/prodb2.jpg",
     "category": "Bike Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "SAE 20W-40" },
+      { "label": "Engine Type", "value": "4-Stroke petrol engines in motorcycles" },
+      { "label": "Product Features", "value": " Maintains performance under high temperatures, even in heavy traffic and long rides." },
+      { "label": "Application", "value": "Suitable for commuter bikes, standard motorcycles, and light-duty motorcycles" },
+      { "label": "Product Range", "value": "ELF Moto 4 Pro (20W-40)" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "JASO MA2" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "SAVSOL Ester5 Ester Scooter 4(At) 10W-30 Bike Engine Oils ",
+    "description": "Introducing SAVSOL ESTER5 ESTER SCOOTER 4 (AT) 10W-30, dedicated 4 stroke engine oil for new generation scooters. Recommended for all kinds of Scooters like Honda TVS, Suzuki, Mahindra, Hero, Yamaha, Vespa, Aprilia etc. Todays vehicle engines face unprecedented challenges, enduring elevated pressures and temperatures daily. To safeguard these engines against friction, heat, and carbon deposits, Savsol introduces a revolutionary technology enriched with ester compounds ESTER FLUID TECHNOLOGY . ",
+    "price": 1600,
     "imageUrl":"https://i.ibb.co/Q7JW35C6/prodb3.jpg" ,
     "category": "Bike Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "10W-30" },
+      { "label": "Engine Type", "value": "4-Stroke petrol engines with automatic transmission" },
+      { "label": "Product Features", "value": " Superior film strength for better engine and transmission protection" },
+      { "label": "Application", "value": "Ideal for city commuting, heavy traffic riding, and long-distance travel" },
+      { "label": "Product Range", "value": "various grades for scooters and motorcycles" },
+      { "label": "Package", "value": "1 litr" },
+      { "label": "Quality", "value": "low-friction oils specially made for scooters" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Divyol Spin Q5 20W50 2 Stroke Motorcycle Oil",
+    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean2 stroke motorcycle oil is a dense liquid used to maintain 2 stroke motorcycle engines. It protects the engine from all kinds of wear and tear, and reduces any fuel-combustion related impacts on the engine. Gandhar Oils range of motorbike oils keep the engine clean and improve fuel efficiency. Under our flagship brand Divyol, we provide 2 stroke motorbike oils that not only meet, but exceed international quality requirements Specification.",
+    "price": 2000,
     "imageUrl":"https://i.ibb.co/GfX7kTpk/prodb44.jpg",
     "category": "Bike Engine Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "20W-50" },
+      { "label": "Engine Type", "value": "2-Stroke petrol engines in motorcycles and scooters" },
+      { "label": "Product Features", "value": "Offers excellent protection against engine wear, ensuring smooth engine operation. " },
+      { "label": "Application", "value": "Best suited for regular city commuting and long-distance rides" },
+      { "label": "Product Range", "value": "various grades and types for 2-stroke and 4-stroke engines" },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "various grades and types for 2-stroke and 4-stroke engines" }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
+    "name": "Servo Lubricant Oil Can (1/2 Pint, Red)- Model No. 30-102",
+    "description": "A high performance lubricant designed for industrial applications, this oil can ensures optimal machine efficiency and longevity. Its precision formulation reduces friction, enhancing the smooth operation of various equipment. Ideal for both professionals and DIY enthusiasts, it comes in a convenient size that makes application easy. ",
     "price": 149.99,
     "imageUrl":"https://i.ibb.co/QvVC5Zwj/prodi1.jpg" ,
     "category": "Industrial Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "1/2 Pint (approx. 250 ml)" },
+      { "label": "Engine Type", "value": "High-quality metal construction for durability and resistance to rust" },
+      { "label": "Product Features", "value": " Designed for accurate and spill-free dispensing." },
+      { "label": "Application", "value": "Perfect for small engines, gears, and other equipment requiring precise oil application." },
+      { "label": "Product Range", "value": "Servo Lubricant Oil Can range (various sizes and models available)" },
+      { "label": "Package", "value": "1/2 Pint (250 ml)" },
+      { "label": "Quality", "value": "Long-lasting durability with robust construction to resist wear and corrosion." }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "HP Metwire Nb Rodec 120 Wire Rope Lubricants",
+    "description": "Wire Rope Lubricants Provides Two Important Functions, Namely : It Protects The Wire Rope From Moisture, Abrasion And Corrosive Elements, It Provides For Internal Lubrication Of The Strands So As To Prevent Fatigue Failure.RODEC 120 is a bitumen based wire rope lubricant. It offers good protection of the strands and at the same time has balanced ductility over normal temperature range.",
+    "price": 10000,
     "imageUrl":"https://i.ibb.co/VYzTDNmg/prodi2.jpg",
     "category": "Industrial Lubricants",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": " SAE 120" },
+      { "label": "Engine Type", "value": "Wire Rope Lubricant" },
+      { "label": "Product Features", "value": " Provides superior protection to wire ropes, ensuring smooth operation and extended rope life." },
+      { "label": "Application", "value": "Best suited for lifting equipment, cranes, hoists, and other heavy-duty machinery." },
+      { "label": "Product Range", "value": "HP Metwire Series (various grades and types for different wire rope applications)" },
+      { "label": "Package", "value": "20 litres" },
+      { "label": "Quality", "value": "Meets or exceeds international standards for wire rope lubrication." }
+
+  ]
   },
   {
-    "name": "Premium All-Weather Floor Mats",
-    "description": "Durable, custom-fit floor mats designed to protect your vehicle's interior from dirt, spills, and wear. Easy to clean.",
-    "price": 149.99,
+    "name": "Shell Advance AX7 4 Stroke Motorcycle Engine Oil",
+    "description": "The advanced formulation of this premium engine oil is designed to enhance your motorcycle's performance. It features innovative cleansing technology that effectively prevents dirt buildup, ensuring a cleaner engine and smoother operation. With improved power delivery and responsiveness, your rides will be more enjoyable and efficient.",
+    "price": 1500,
     "imageUrl":"https://i.ibb.co/HLp5K6CQ/prodf1.jpg",
     "category": "Four Stroke Oil",
-    "stock": 50
+    "stock": 50,
+    "specs": [
+      { "label": "Viscosity", "value": "10W-40" },
+      { "label": "Engine Type", "value": "4-stroke petrol engines in motorcycles and scooters" },
+      { "label": "Product Features", "value": " Prevents dirt particles from sticking together, reducing sludge build-up and keeping the engine clean." },
+      { "label": "Application", "value":"Ideal for high-performance motorcycles and scooters." },
+      { "label": "Product Range", "value": "suited to a wide variety of motorcycle types, from entry-level scooters to high-performance sports bikes." },
+      { "label": "Package", "value": "1 litre" },
+      { "label": "Quality", "value": "Meets or exceeds API SM and JASO MA2 specifications" }
+
+  ]
   }
 ]

@@ -106,29 +106,66 @@ const ProductDetail = () => {
         alert('You must be logged in to place an order.');
         return;
       }
-
-      await axios.post(
-        'http://localhost:3001/api/orders',
-        {
-          productId: product._id,
-          quantity,
-          userInfo,
-          orderSummary,
+  
+      const invoiceNumber = `INV-${Date.now()}`;
+      const orderData = {
+        productId: product._id,
+        quantity,
+        userInfo,
+        orderSummary,
+        invoiceNumber,
+      };
+  
+      // 1. Place the order
+      await axios.post('http://localhost:3001/api/orders', orderData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
+      });
+  
+      alert('Order placed successfully!');
+  
+      // 2. Generate and download invoice PDF
+      const invoiceData = {
+        customerName: userInfo?.name || 'Customer',
+        customerEmail: userInfo?.email || 'N/A',
+        invoiceNumber: `INV-${Date.now()}`,
+        items: [
+          {
+            name: product.name,
+            quantity: quantity,
+            price: product.price,
+          }
+        ]
+      };
+      const invoiceResponse = await axios.post(
+        'http://localhost:3001/api/orders/generate-invoice',
+        invoiceData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
+          responseType: 'blob',
         }
       );
-
-      alert('Order placed successfully!');
+  
+      const blob = new Blob([invoiceResponse.data], { type: 'application/pdf' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${invoiceNumber}.pdf`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link); // cleaner than parentNode
+  
       setOpenSummaryDialog(false);
     } catch (err) {
-      console.error('Error placing order:', err);
-      alert(err.response?.data?.message || 'Failed to place order.');
+      console.error('Error placing order or generating invoice:', err);
+      alert(err.response?.data?.message || 'Failed to complete the process.');
     }
   };
+  
+  
 
   if (loading) {
     return (
