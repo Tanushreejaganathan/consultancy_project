@@ -87,15 +87,16 @@ function generateInvoicePDF(stream, order) {
     let currentY = tableTop + 30;
     
     order.items.forEach((item) => {
-        const itemTotal = item.quantity * item.price;
+        const itemTotal = item.quantity * (item.price + (item.price * 0.18)); // Assuming 18% GST
+        const itemGST = item.price * 0.18; // Assuming 18% GST
         total += itemTotal;
 
         doc.font('Helvetica')
            .text(item.name, xItem, currentY)
            .text(item.quantity.toString(), xQty, currentY)
-           .text(`₹${item.price.toFixed(2)}`, xPrice, currentY)
-           .text(`₹${(item.price * 0.18).toFixed(2)}`, xGST, currentY) // Assuming 18% GST
-           .text(`₹${itemTotal.toFixed(2)}`, xTotal, currentY);
+           .text(`${item.price.toFixed(2)}`, xPrice, currentY)
+           .text(`${(item.price * 0.18).toFixed(2)}`, xGST, currentY) // Assuming 18% GST
+           .text(`${itemTotal.toFixed(2)}`, xTotal, currentY);
 
         currentY += 25;
     });
@@ -109,7 +110,8 @@ function generateInvoicePDF(stream, order) {
 
     doc.font('Helvetica-Bold')
        .text('TOTAL', xPrice, currentY + 20)
-       .text(`$${total.toFixed(2)}`, xTotal, currentY + 20);
+       
+       .text(`${total.toFixed(2)}`, xTotal, currentY + 20);
 
     doc.end();
 }
