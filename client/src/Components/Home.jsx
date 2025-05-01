@@ -336,7 +336,7 @@ import {
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import GetBestPriceModal from './GetBestPriceModal'; // Make sure this path is correct
+import GetBestPriceModal from './GetBestPriceModal';
 
 export const Home = () => {
   const [bannerIndex, setBannerIndex] = useState(0);
