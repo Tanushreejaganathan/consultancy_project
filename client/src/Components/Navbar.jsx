@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, IconButton, Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { FiLogOut } from 'react-icons/fi';
-import { useCart } from '../context/CartContext'; // Import useCart
+import { useCart } from '../context/CartContext'; // Add this import
 
 export const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
     const navigate = useNavigate();

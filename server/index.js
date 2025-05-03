@@ -50,6 +50,21 @@ const authenticateToken = async (req, res, next) => {
         return res.status(500).json({ message: 'Server error during authentication' });
     }
 };
+app.post('/api/orders/generate-invoice', authenticateToken, async (req, res) => {
+    try {
+        const order = req.body;
+        if (!order || !order.items || order.items.length === 0) {
+            return res.status(400).json({ message: 'Invalid order data' });
+        }
+
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', 'attachment; filename=invoice.pdf');
+        generateInvoicePDF(res, order);
+    } catch (error) {
+        console.error('Error generating invoice:', error);
+        res.status(500).json({ message: 'Server error generating invoice' });
+    }
+});
 
 // --- Auth Routes ---
 app.post("/consultancy/signup", async (req, res) => {
@@ -83,12 +98,15 @@ app.post("/login", async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) return res.status(401).json({ message: "Incorrect password" });
 
+        // Modified response format to match frontend expectations
         res.status(200).json({
-            _id: user.id,
-            name: user.name,
+            token: generateToken(user._id),
+           user :{
+            _id: user._id,
+            username: user.name,
             email: user.email,
             cart: user.cart,
-            token: generateToken(user._id),
+           }
         });
     } catch (error) {
         console.error("Login Error:", error);
@@ -202,7 +220,7 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
     }
 });
 
-app.post('/api/orders/generate-invoice', authenticateToken, async (req, res) => {
+app.post('/api/', authenticateToken, async (req, res) => {
     try {
         const order = req.body;
         if (!order || !order.items || order.items.length === 0) {

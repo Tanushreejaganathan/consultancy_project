@@ -34,7 +34,21 @@ const GetBestPriceModal = ({ open, handleClose, product }) => {
   };
 
   const handleBuyNow = () => {
-    alert(`Proceeding to buy: ${product.name} - Quantity: ${quantity}`);
+  //redirect to checkout page
+    handleClose(); 
+    navigate('/checkout', { 
+      state: {
+        username: product.username,
+        email: product.email,
+        products: [{
+          ...product,
+          quantity: quantity,
+          totalPrice: price
+        }]
+      }
+    });
+
+    
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {
   Box,
@@ -13,24 +13,25 @@ import {
   DialogContent,
   DialogActions,
 } from '@mui/material';
-import { useCart } from '../context/CartContext';
-import OrderSummaryDialog from '../Components/OrderSummaryDialog';
+import { useCart } from '../context/CartContext'; // Add this import
+import OrderSummaryDialog from './OrderSummaryDialog';
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate(); // Add this line
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [openUserDialog, setOpenUserDialog] = useState(false);
   const [openSummaryDialog, setOpenSummaryDialog] = useState(false);
+  const [orderSummary, setOrderSummary] = useState(null);
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',
+    address: ''
   });
-  const [orderSummary, setOrderSummary] = useState(null);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -62,7 +63,18 @@ const ProductDetail = () => {
   };
 
   const handleBuyNow = () => {
-    setOpenUserDialog(true);
+    if (!product) return;
+    
+    // navigate('/checkout', {
+    //   state: {
+    //     products: [{
+    //       ...product,
+    //       quantity: quantity,
+    //       totalPrice: product.price * quantity
+    //     }]
+    //   }
+    // });
+    navigate('/checkout')
   };
 
   const handleUserDialogClose = () => {
@@ -106,61 +118,18 @@ const ProductDetail = () => {
         alert('You must be logged in to place an order.');
         return;
       }
-  
-      const invoiceNumber = `INV-${Date.now()}`;
-      const orderData = {
-        productId: product._id,
-        quantity,
-        userInfo,
-        orderSummary,
-        invoiceNumber,
-      };
-  
-      // 1. Place the order
-      await axios.post('http://localhost:3001/api/orders', orderData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      alert('Order placed successfully!');
-  
-      // 2. Generate and download invoice PDF
-      const invoiceData = {
-        customerName: userInfo?.name || 'Customer',
-        customerEmail: userInfo?.email || 'N/A',
-        invoiceNumber: `INV-${Date.now()}`,
-        items: [
-          {
-            name: product.name,
-            quantity: quantity,
-            price: product.price,
-          }
-        ]
-      };
-      const invoiceResponse = await axios.post(
-        'http://localhost:3001/api/orders/generate-invoice',
-        invoiceData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
+
+      navigate('/checkout', {
+        state: {
+          product: {
+            ...product,
+            quantity: quantity
           },
-          responseType: 'blob',
+          userInfo
         }
-      );
-  
-      const blob = new Blob([invoiceResponse.data], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `${invoiceNumber}.pdf`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link); // cleaner than parentNode
-  
-      setOpenSummaryDialog(false);
+      });
     } catch (err) {
-      console.error('Error placing order or generating invoice:', err);
+      console.error('Error placing order:', err);
       alert(err.response?.data?.message || 'Failed to complete the process.');
     }
   };
@@ -240,7 +209,7 @@ const ProductDetail = () => {
           )}
 
           {/* Quantity, Add to Cart, Buy Now */}
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: 3 }}>
+          <Box sx={{ display: 'flex',mt: 1,gap :2 , alignItems: 'center', mt: 3 }}>
             <TextField
               type="number"
               label="Quantity"
@@ -249,12 +218,19 @@ const ProductDetail = () => {
               inputProps={{ min: 1 }}
               sx={{ width: '100px' }}
             />
-            <Button variant="contained" onClick={handleAddToCart} sx={{ height: '56px' }}>
+            <Button variant="contained" onClick={handleAddToCart} sx={{ display:'flex', mt: 1 ,height: '56px' }}>
               Add to Cart
             </Button>
-            <Button variant="contained" color="secondary" onClick={handleBuyNow} sx={{ height: '56px' }}>
-              Buy Now
-            </Button>
+            <Box sx={{ display: 'flex', mt: 1 ,height:'56px'}}>
+              
+              {/* <Button 
+                variant="contained" 
+                color="secondary" 
+                onClick={handleBuyNow}
+              >
+                Buy Now
+              </Button> */}
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton, TableCell, TableRow, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/CartContext'; // Add this import
 const CartItem = ({ item }) => {
     const price = item?.price || 0;
     const quantity = item?.quantity || 0;

@@ -12,7 +12,9 @@ import ProductDetail from './Components/ProductDetail';
 import { CartProvider } from "./context/CartContext";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
-import ErrorBoundary from "./Components/ErrorBoundary"; // ← import ErrorBoundary
+import ErrorBoundary from "./Components/ErrorBoundary";
+import CheckoutPage from "./Components/Checkout";
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
@@ -29,26 +31,29 @@ function App() {
   }, []);
 
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <ErrorBoundary> 
-          <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-          <Routes>
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-          </Routes>
-        </ErrorBoundary>
-      </BrowserRouter>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <ErrorBoundary> 
+            <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <Routes>
+              <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+            </Routes>
+          </ErrorBoundary>
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

@@ -15,10 +15,21 @@ import {
   Button
 } from '@mui/material';
 import CartItem from './CartItem';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
     const { cartItems, loading, error, fetchCart } = useCart();
-    console.log('Cart items:', cartItems); // Debugging line
+    const navigate = useNavigate(); // Add this line
+    console.log('Cart items:', cartItems);
+
+    // Add this function
+    const handleCheckout = () => {
+        navigate('/checkout', {
+            state: {
+                products: cartItems
+            }
+        });
+    };
     useEffect(() => {
         fetchCart();
     }, []);
@@ -90,9 +101,19 @@ const CartPage = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            {cartItems.length > 0 && (
+                <Box sx={{ mt: 4, display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button 
+                        variant="contained" 
+                        size="large"
+                        onClick={handleCheckout}
+                    >
+                        Proceed to Checkout
+                    </Button>
+                </Box>
+            )}
         </Box>
     );
 };
 
-// ✅ This is the important line:
 export default CartPage;
