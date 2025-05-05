@@ -67,30 +67,53 @@ const CheckoutPage = () => {
     const token = localStorage.getItem('token');
     setIsSubmitting(true);
     try {
-      const orderData = {
-        items: products.map(product => ({
-          key: product.productId, 
-          name: product.name,
-          quantity: product.quantity,
-          price: product.price,
-          total: product.price * product.quantity
-        })),
-        totalAmount: totalPrice,
-        shippingAddress: {
-          fullName: data.fullName,
-          address: data.address,
-          city: data.city,
-          state: data.state,
-          pincode: data.pincode,
-          phone: data.phone
+      // Create order with the correct structure to match server expectations
+      const orderResponse = await axios.post(
+        `http://localhost:3001/api/orders`,
+        {
+          productId: products[0].id || products[0]._id || products[0].productId, // Handle all possible ID cases
+          quantity: products[0].quantity,
+          userInfo: {
+            name: data.fullName,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
+            city: data.city,
+            state: data.state,
+            pincode: data.pincode
+          }
         },
-        paymentMethod: data.paymentMethod,
-        // userId: userId
-      };
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          }
+        }
+      );
 
+      // After order is created successfully, generate invoice
       const invoiceResponse = await axios.post(
         `http://localhost:3001/api/orders/generate-invoice`,
-        orderData,
+        {
+          orderId: orderResponse.data.order._id,
+          items: [{
+            productId: products[0].id || products[0]._id || products[0].productId,
+            name: products[0].name,
+            quantity: products[0].quantity,
+            price: products[0].price,
+            total: products[0].price * products[0].quantity
+          }],
+          totalAmount: finalTotal,
+          shippingAddress: {
+            fullName: data.fullName,
+            address: data.address,
+            city: data.city,
+            state: data.state,
+            pincode: data.pincode,
+            phone: data.phone
+          },
+          paymentMethod: data.paymentMethod
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -99,6 +122,7 @@ const CheckoutPage = () => {
           responseType: 'blob'
         }
       );
+    
 
       // Create blob URL
       const blob = new Blob([invoiceResponse.data], { type: 'application/pdf' });

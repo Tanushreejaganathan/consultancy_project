@@ -1,11 +1,10 @@
-// models/Order.js
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema(
   {
     productId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product', // Reference to the Product model (if you have one)
+      ref: 'Product',
       required: true,
     },
     quantity: {
@@ -23,13 +22,25 @@ const orderSchema = new mongoose.Schema(
         required: true,
         match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Basic email validation
       },
+      phone: {
+        type: Number,
+        required: true,
+      },
       address: {
         type: String,
         required: true,
       },
-      phone:{
-        type: Number,
-        required:true,
+      city: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+      pincode: {
+        type: String,
+        required: true,
       },
     },
     createdAt: {
@@ -37,7 +48,7 @@ const orderSchema = new mongoose.Schema(
       default: Date.now,
     },
   },
-  { timestamps: true } // Adds `createdAt` and `updatedAt` fields automatically
+  { timestamps: true }
 );
 
 module.exports = mongoose.model('Order', orderSchema);
