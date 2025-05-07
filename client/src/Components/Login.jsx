@@ -1,208 +1,176 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { FaCar, FaLock, FaEnvelope } from 'react-icons/fa'; // React Icons
+import {
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+  Button,
+  Link,
+  Alert,
+} from '@mui/material';
 
 export const Login = ({ setIsLoggedIn }) => {
-    const { fetchCart } = useCart();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [showOTP, setShowOTP] = useState(false);
+  const [otp, setOTP] = useState('');
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    
+    try {
+      const response = await axios.post('http://localhost:3001/auth/login', { 
+        email, 
+        password 
+      });
+      
+      if (response.data && response.data.userId) {
+        setUserId(response.data.userId);
+        // After successful credential verification, show OTP input
+        setShowOTP(true);
+        // Trigger OTP generation and sending on the backend
+        await axios.post('http://localhost:3001/auth/generate-otp', { 
+          userId: response.data.userId,
+          email 
+        });
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      setError(err.response?.data?.message || 'Failed to login. Please check your credentials.');
+    }
+  };
 
-        try {
-            const response = await axios.post('http://localhost:3001/login', { email, password });
+  const handleOTPVerification = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3001/auth/verify-otp', { 
+        userId,
+        otp 
+      });
 
-            if (response.data && response.data.token) {
-                // Save the token to localStorage
-                localStorage.setItem('token', response.data.token);
-
-                // Set the logged-in state
-                setIsLoggedIn(true);
-
-                // Now fetch the cart after the token is stored
-                const token = localStorage.getItem('token'); // Fetch token from localStorage
-
-                if (token) {
-                    await fetchCart(); // This will now work since token is available
-                } else {
-                    console.error('Token not found! Cannot fetch cart.');
-                    setError('Token missing. Please try logging in again.');
-                }
-
-                // Navigate to the home page after successful login
-                navigate('/home');
-            }
-        } catch (err) {
-            console.error("Login error caught:", err);
-            if (err.response) {
-                console.error("Error response data:", err.response.data);
-                console.error("Error response status:", err.response.status);
-                console.error("Error response headers:", err.response.headers);
-            } else if (err.request) {
-                console.error("Error request:", err.request);
-                setError('No response from server. Is it running?');
-            } else {
-                console.error('Error message:', err.message);
-            }
-
-            const message = err.response?.data?.message || 'Login failed. Please check your credentials.';
-            setError(message);
-            setIsLoggedIn(false);
+      if (response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        if (response.data.user) {
+          localStorage.setItem('user', JSON.stringify(response.data.user));
         }
-    };
+        setIsLoggedIn(true);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+        navigate('/');
+      }
+    } catch (err) {
+      console.error('OTP verification error:', err);
+      setError(err.response?.data?.message || 'Invalid OTP. Please try again.');
+    }
+  };
 
-    // Inline Styles
-    const containerStyle = {
-        textAlign: 'center',
-        background: '#f0f8ff', // Light blue background
-        padding: '40px',
-        borderRadius: '15px',
-        boxShadow: '0 8px 15px rgba(0, 0, 0, 0.2)',
-        maxWidth: '400px',
-        width: '100%',
-        margin: 'auto',
-        marginTop: '50px',
-    };
+  return (
+    <Grid container justifyContent="center" alignItems="center" style={{ minHeight: '100vh', backgroundColor: '#f0f2f5' }}>
+      <Paper elevation={10} style={{ padding: '2rem', borderRadius: '1rem', maxWidth: '400px', width: '100%' }}>
+        <Typography variant="h4" align="center" gutterBottom fontWeight="bold">
+          {showOTP ? 'Enter OTP' : 'Login'}
+        </Typography>
+        
+        {!showOTP ? (
+          <form onSubmit={handleSubmit}>
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            
+            <TextField
+              fullWidth
+              margin="normal"
+              label="Password"
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-    const headerStyle = {
-        marginBottom: '20px',
-    };
+            {error && (
+              <Alert severity="error" sx={{ mt: 2 }}>
+                {error}
+              </Alert>
+            )}
 
-    const carIconStyle = {
-        fontSize: '48px',
-        color: '#007bff', // Dark blue car icon
-        animation: 'bounce 2s infinite',
-    };
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                py: 1.5,
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                borderRadius: '0.5rem'
+              }}
+            >
+              Login
+            </Button>
 
-    const h1Style = {
-        fontSize: '28px',
-        margin: '10px 0',
-        color: '#333',
-    };
+            <Grid container justifyContent="space-between" sx={{ mt: 2 }}>
+              <Link href="/forgot-password" variant="body2">
+                Forgot Password?
+              </Link>
+              <Link href="/signup" variant="body2">
+                Don't have an account? Sign Up
+              </Link>
+            </Grid>
+          </form>
+        ) : (
+          <form onSubmit={handleOTPVerification}>
+            <Typography variant="body1" align="center" sx={{ mb: 2 }}>
+              Please enter the OTP sent to your email
+            </Typography>
+            
+            <TextField
+              fullWidth
+              margin="normal"
+              label="OTP"
+              type="text"
+              required
+              value={otp}
+              onChange={(e) => setOTP(e.target.value)}
+              inputProps={{ maxLength: 6 }}
+              sx={{ letterSpacing: '0.5em' }}
+            />
 
-    const pStyle = {
-        fontSize: '16px',
-        color: '#666',
-    };
+            {error && (
+              <Alert severity="error" sx={{ mt: 2 }}>
+                {error}
+              </Alert>
+            )}
 
-    const formStyle = {
-        marginTop: '20px',
-    };
-
-    const inputGroupStyle = {
-        position: 'relative',
-        marginBottom: '20px',
-        display: 'flex',
-        alignItems: 'center',
-        border: '2px solid #007bff', // Blue border
-        borderRadius: '8px',
-        overflow: 'hidden',
-    };
-
-    const inputIconStyle = {
-        position: 'absolute',
-        top: '50%',
-        left: '10px',
-        transform: 'translateY(-50%)',
-        fontSize: '20px',
-        color: '#007bff', // Blue icon color
-        padding: '12px',
-        backgroundColor: '#f0f8ff', // Light blue background for icons
-    };
-
-    const inputFieldStyle = {
-        width: '100%',
-        padding: '12px 40px',
-        border: 'none',
-        outline: 'none',
-        fontSize: '16px',
-        boxSizing: 'border-box',
-    };
-
-    const buttonStyle = {
-        width: '100%',
-        padding: '12px',
-        background: '#007bff', // Blue button background
-        color: 'white',
-        fontSize: '18px',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        transition: 'background 0.3s ease',
-    };
-
-    const linkStyle = {
-        color: '#007bff', // Blue link color
-        textDecoration: 'none',
-        transition: 'color 0.3s ease',
-    };
-
-    const errorStyle = {
-        color: 'red',
-        fontSize: '14px',
-        marginBottom: '10px',
-    };
-
-    return (
-        <div style={containerStyle}>
-            {/* Header */}
-            <div style={headerStyle}>
-                <FaCar style={carIconStyle} />
-                <h1 style={h1Style}>Welcome</h1>
-                <p style={pStyle}>Your one-stop shop for premium automobile products</p>
-            </div>
-
-            {/* Login Form */}
-            <form onSubmit={handleSubmit} style={formStyle}>
-                <h2>Login</h2>
-                {error && <p style={errorStyle}>{error}</p>}
-
-                {/* Email Input */}
-                <div style={inputGroupStyle}>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Email"
-                        required
-                        style={inputFieldStyle}
-                    />
-                </div>
-
-                {/* Password Input */}
-                <div style={inputGroupStyle}>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        required
-                        style={inputFieldStyle}
-                    />
-                </div>
-
-                {/* Submit Button */}
-                <button type="submit" style={buttonStyle}>
-                    Login <FaCar style={{ marginLeft: '10px', fontSize: '20px', color: 'white' }} />
-                </button>
-
-                {/* Links */}
-                <div style={{ marginTop: '20px', fontSize: '16px' }}>
-                    <Link to="/forgot-password" style={linkStyle}>Forgot Password?</Link>
-                    <p>
-                        Don't have an account? <Link to="/signup" style={linkStyle}>Sign Up</Link>
-                    </p>
-                </div>
-            </form>
-        </div>
-    );
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 2,
+                py: 1.5,
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                borderRadius: '0.5rem'
+              }}
+            >
+              Verify OTP
+            </Button>
+          </form>
+        )}
+      </Paper>
+    </Grid>
+  );
 };

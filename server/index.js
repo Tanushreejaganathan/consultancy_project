@@ -73,6 +73,7 @@ app.post(
     }
   }
 );
+//login verfiction route
 
 // --- Auth Routes ---
 app.post("/consultancy/signup", async (req, res) => {
@@ -95,36 +96,116 @@ app.post("/consultancy/signup", async (req, res) => {
     console.error("Signup Error:", error);
     res.status(500).json({ error: "Server error during signup" });
   }
+});// Add OTP model import at the top
+const OTP = require('./models/otp');
+const nodemailer = require('nodemailer');
+
+// Configure nodemailer
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
 });
 
-app.post("/login", async (req, res) => {
+// Generate OTP function
+const generateOTP = () => {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+};
+
+// Modify the login route
+app.post("/auth/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !password)
-      return res
-        .status(400)
-        .json({ message: "Email and password are required" });
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" });
+    }
 
-    const user = await UserModel.findOne({ email }).populate("cart.productId");
+    const user = await UserModel.findOne({ email });
     if (!user) return res.status(404).json({ message: "User not found" });
 
     const passwordMatch = await bcrypt.compare(password, user.password);
-    if (!passwordMatch)
+    if (!passwordMatch) {
       return res.status(401).json({ message: "Incorrect password" });
+    }
 
-    // Modified response format to match frontend expectations
+    // Return userId for OTP verification
+    res.status(200).json({ userId: user._id });
+  } catch (error) {
+    console.error("Login Error:", error);
+    res.status(500).json({ message: "Server error during login" });
+  }
+});
+
+// Add OTP generation route
+app.post("/auth/generate-otp", async (req, res) => {
+  try {
+    const { userId, email } = req.body;
+    const otp = generateOTP();
+
+    // Save OTP to database
+    const hashedOTP = await bcrypt.hash(otp, 10);
+    await OTP.create({
+      userId,
+      otp: hashedOTP,
+      createdAt: new Date(),
+      expiresAt: new Date(Date.now() + 5 * 60 * 1000) // 5 minutes expiry
+    });
+
+    // Send OTP via email
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Login OTP',
+      text: `Your OTP for login is: ${otp}. This OTP will expire in 5 minutes.`
+    });
+
+    res.json({ success: true, message: 'OTP sent successfully' });
+  } catch (error) {
+    console.error('OTP generation error:', error);
+    res.status(500).json({ message: 'Failed to generate OTP' });
+  }
+});
+
+// Add OTP verification route
+app.post("/auth/verify-otp", async (req, res) => {
+  try {
+    const { userId, otp } = req.body;
+    
+    const otpRecord = await OTP.findOne({
+      userId,
+      expiresAt: { $gt: new Date() }
+    }).sort({ createdAt: -1 });
+
+    if (!otpRecord) {
+      return res.status(400).json({ message: 'OTP expired or not found' });
+    }
+
+    const isValid = await bcrypt.compare(otp, otpRecord.otp);
+    if (!isValid) {
+      return res.status(401).json({ message: 'Invalid OTP' });
+    }
+
+    // Delete used OTP
+    await OTP.deleteOne({ _id: otpRecord._id });
+
+    // Get user data
+    const user = await UserModel.findById(userId).populate("cart.productId");
+
+    // Generate token and send response
     res.status(200).json({
-      token: generateToken(user._id),
+      token: generateToken(userId),
       user: {
         _id: user._id,
         username: user.name,
         email: user.email,
         cart: user.cart,
-      },
+      }
     });
   } catch (error) {
-    console.error("Login Error:", error);
-    res.status(500).json({ message: "Server error during login" });
+    console.error('OTP verification error:', error);
+    res.status(500).json({ message: 'Failed to verify OTP' });
   }
 });
 
